@@ -2,8 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 import { envAPI_LAYOUT_API } from "@/libs/configs/config.env";
-import { RootState } from "../store";
-
 const URL = envAPI_LAYOUT_API.rootLayoutAPI as string;
 
 export const fetchRootLayout = createAsyncThunk(
@@ -40,16 +38,19 @@ const rootLayoutSlice = createSlice({
   name: "rootLayout",
   initialState,
   reducers: {
-    getHeaderData: (state, action) => {
+    setRootLayoutData: (state, action) => {
       if (action.payload) {
         state.rootLayoutData = action.payload;
-        state.headerData = initialState.headerData;
       }
     },
-    getFooterData: (state, action) => {
+    setHeaderData: (state, action) => {
       if (action.payload) {
-        state.rootLayoutData = action.payload;
-        state.footerData = initialState.footerData;
+        state.headerData = action.payload;
+      }
+    },
+    setFooterData: (state, action) => {
+      if (action.payload) {
+        state.footerData = action.payload;
       }
     },
   },
@@ -75,11 +76,6 @@ const rootLayoutSlice = createSlice({
   },
 });
 
-export const getrootLayout = (state: RootState) => state.rootLayout;
-export const getrootLayoutData = (state: RootState) =>
-  state.rootLayout.rootLayoutData;
-export const getrootLayoutDataStatus = (state: RootState) =>
-  state.rootLayout.status;
-export const getHeaderDataError = (state: RootState) => state.rootLayout.error;
+export const { setRootLayoutData, setHeaderData, setFooterData } = rootLayoutSlice.actions;
 
 export default rootLayoutSlice.reducer;

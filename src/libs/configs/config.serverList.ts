@@ -10,4 +10,5 @@ export const blackListedIPs = [];
 export const allowedOrigins = [
   `http://${envBackendAPI.APP_BACKEND}`,
   `http://${envFrontendHost.APP_FRONTEND}`,
+  `${envBackendAPI.APP_BACKEND}`,
 ];

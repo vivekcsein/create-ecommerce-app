@@ -1,3 +1,3 @@
 export default function Home() {
-  return <main>Hello E-commerce app</main>;
+  return <main className="relative">Hello E-commerce app</main>;
 }

@@ -30,7 +30,7 @@ const _googleConfig = {
 const _envAPI_LAYOUT_API = {
   rootLayoutAPI:
     process.env.ROOT_LAYOUT_API ||
-    ("http://localhost/api/rootLayout" as string),
+    ("http://localhost:3000/api/rootLayout" as string),
 };
 
 const _envGoogleClient = {
