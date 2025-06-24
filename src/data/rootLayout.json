@@ -1,0 +1,71 @@
+{
+  "rootLayoutData": {
+    "HeaderData": {
+      "header_Logo": {
+        "src": "/logo.png",
+        "alt": "Logo",
+        "href": "/"
+      },
+      "navbar": {
+        "nav_Links": [
+          { "id": 1, "href": "/", "label": "Home", "special": false },
+          {
+            "id": 2,
+            "href": "/Categories",
+            "label": "Explore",
+            "special": false
+          },
+
+          {
+            "id": 3,
+            "href": "/Trending",
+            "label": "Trends",
+            "special": false
+          }
+        ]
+      }
+    },
+    "FooterData": {
+      "footer_logo": "",
+      "copyright_message": "Copyright © 2024 Vivek.inc All Right are Reserved",
+
+      "footer_Links": [
+        {
+          "id": 1,
+          "title": "Top Products",
+          "links": "/Trends"
+        },
+        {
+          "id": 2,
+          "title": "About US",
+          "links": [
+            { "id": 1, "label": "About us", "href": "/AboutUS" },
+            { "id": 2, "label": "FAQs", "href": "/FAQs" },
+            { "id": 3, "label": "How It Works", "href": "/HowItWorks" },
+            {
+              "id": 4,
+              "label": "Privacy Policy",
+              "href": "/PrivacyPolicy"
+            },
+            {
+              "id": 5,
+              "label": "Payment Policy",
+              "href": "/PaymentPolicy"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Get in touch",
+          "links": [
+            {
+              "id": 1,
+              "label": "Subscribe Now",
+              "href": "/"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
