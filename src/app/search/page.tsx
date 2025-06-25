@@ -1,12 +1,12 @@
 type SearchPageProps = {
-  searchParams: { query?: string } | undefined;
+  searchParams: Promise<{ query: string } | undefined>;
 };
 
 const Search = async ({ searchParams }: SearchPageProps) => {
   const search = await searchParams;
   if (!search) return;
 
-  const searchQuery = typeof search === "object" && search.query;
+  const searchQuery = search.query as string;
 
   if (!searchQuery) {
     return;

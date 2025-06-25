@@ -1,11 +1,11 @@
 
 export const fetchAPI = async (endpoint: string, revalidateTime?: number) => {
     try {
-        let res = await fetch(`${endpoint}`, {
+        const res = await fetch(`${endpoint}`, {
             method: "GET",
             // cache: "no-cache",
-            // Revalidate every 60 seconds
-            next: { revalidate: revalidateTime ? revalidateTime : 60 * 60 },
+            // Revalidate every after 1 day seconds
+            next: { revalidate: revalidateTime ? revalidateTime : 24 * 60 * 60 },
             headers: {
                 "Content-Type": "application/json; charset=utf-8",
             },

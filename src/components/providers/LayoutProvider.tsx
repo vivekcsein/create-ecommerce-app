@@ -23,7 +23,7 @@ const LayoutProvider = ({
     dispatch(setHeaderData(HeaderData));
     dispatch(setFooterData(FooterData));
     return () => {};
-  }, [dispatch]);
+  }, [dispatch, rootLayoutData, HeaderData, FooterData]);
 
   return (
     <>

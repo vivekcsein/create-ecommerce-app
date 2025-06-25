@@ -1,4 +1,4 @@
-import { envBackendAPI, envConfig, envFrontendHost } from "./config.env";
+import { envBackendAPI, envFrontendHost } from "./config.env";
 
 export const whiteListedServer = [
   `http://${envBackendAPI.APP_BACKEND}`,
