@@ -8,19 +8,33 @@
       },
       "navbar": {
         "nav_Links": [
-          { "id": 1, "href": "/", "label": "Home", "special": false },
+          { "id": 1, "href": "/", "label": "Home", "icon": "House" },
           {
             "id": 2,
             "href": "/Categories",
             "label": "Explore",
-            "special": false
+            "icon": "Package",
+            "subItems": [
+              {
+                "id": 1,
+                "href": "/products/electronics",
+                "label": "Electronics",
+                "icon": "Smartphone"
+              },
+              {
+                "id": 2,
+                "href": "/products/clothing",
+                "label": "Clothing",
+                "icon": "Shirt"
+              },
+              { "id": 3, "href": "/", "label": "Books", "icon": "BookOpen" }
+            ]
           },
-
           {
             "id": 3,
             "href": "/Trending",
             "label": "Trends",
-            "special": false
+            "icon": "TrendingUp"
           }
         ]
       }
@@ -33,7 +47,7 @@
         {
           "id": 1,
           "title": "Top Products",
-          "links": "/Trends"
+          "href": "/Trending"
         },
         {
           "id": 2,

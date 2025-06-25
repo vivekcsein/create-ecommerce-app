@@ -22,8 +22,8 @@ interface nav_Links {
   id: number;
   href: string;
   label: string;
-  special: boolean;
-  details?: string;
+  icon?: string;
+  subItems?: Array<nav_Links>;
 }
 //footer data type
 type FooterData = {

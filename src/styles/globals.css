@@ -300,3 +300,9 @@ input::placeholder {
 .coolLink:hover::after {
   width: 100%;
 }
+
+.coolBackgroundEffect:hover {
+  @apply bg-gradient-to-r from-accent to-secondary;
+  color: var(--primary);
+  border-radius: 10px;
+}

@@ -4,10 +4,9 @@
   width: 100%;
   z-index: 1000;
   @include res_desktop {
-    background-color: red;
     top: 0;
     position: sticky;
-    height: 10vh;
+    height: 8vh;
   }
   .Header__logo {
     width: 150px;
@@ -30,5 +29,8 @@
       font-size: 14px;
       text-wrap: nowrap;
     }
+  }
+  .Header__phone {
+    height: 8vh;
   }
 }
