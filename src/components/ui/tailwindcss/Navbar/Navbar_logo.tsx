@@ -13,7 +13,11 @@ const Navbar_logo = ({ src, alt, href }: NavbarImgProps) => {
     <div className="flex items-center space-x-2">
       <Link className="Header__logo" href={href ? href : "/"}>
         <Image
-          src={src ? src : "https://i.ibb.co/kv9nMCL/FRNZ-logo-online.png"}
+          src={
+            src
+              ? src
+              : "https://raw.githubusercontent.com/vivekcsein/githost/refs/heads/main/images/six-teal/six-teal.png"
+          }
           alt={alt ? alt : "Logo"}
           width={150}
           height={150}
