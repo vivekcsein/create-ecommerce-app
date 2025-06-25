@@ -1,4 +1,4 @@
-import { envBackendAPI, envFrontendHost } from "./config.env";
+import { envAPI_LAYOUT_API, envBackendAPI, envFrontendHost } from "./config.env";
 
 export const whiteListedServer = [
   `http://${envBackendAPI.APP_BACKEND}`,
@@ -11,4 +11,5 @@ export const allowedOrigins = [
   `http://${envBackendAPI.APP_BACKEND}`,
   `http://${envFrontendHost.APP_FRONTEND}`,
   `${envBackendAPI.APP_BACKEND}`,
+  `${envAPI_LAYOUT_API.rootLayoutAPI}`
 ];
