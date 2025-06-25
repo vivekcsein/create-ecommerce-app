@@ -76,6 +76,7 @@ const rootLayoutSlice = createSlice({
   },
 });
 
-export const { setRootLayoutData, setHeaderData, setFooterData } = rootLayoutSlice.actions;
+export const { setRootLayoutData, setHeaderData, setFooterData } =
+  rootLayoutSlice.actions;
 
 export default rootLayoutSlice.reducer;
