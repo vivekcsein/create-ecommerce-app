@@ -19,10 +19,11 @@ const Navbar_logo = ({ src, alt, href }: NavbarImgProps) => {
               : "https://raw.githubusercontent.com/vivekcsein/githost/refs/heads/main/images/six-teal/six-teal.png"
           }
           alt={alt ? alt : "Logo"}
-          width={150}
-          height={150}
+          width={100}
+          height={100}
           loading="lazy"
         />
+        <span className="Header__logo_text">Six-Teal</span>
       </Link>
     </div>
   );

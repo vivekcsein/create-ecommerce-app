@@ -1,7 +1,7 @@
 import React from "react";
 
 const Navbar_Auth = () => {
-  return <div>Navbar_Auth</div>;
+  return <div></div>;
 };
 
 export default Navbar_Auth;
