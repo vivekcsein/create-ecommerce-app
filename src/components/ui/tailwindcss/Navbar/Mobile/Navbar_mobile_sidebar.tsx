@@ -53,7 +53,7 @@ export function AppSidebar({ headerData }: AppSidebarProps) {
     <Sidebar side="left" variant="sidebar" collapsible="offcanvas">
       <SidebarHeader>
         <SidebarMenu>
-          <SidebarMenuItem>
+          <SidebarMenuItem className="bg-black text-white ">
             <SidebarMenuButton size="lg" asChild>
               <Navbar_logo />
             </SidebarMenuButton>
@@ -61,7 +61,7 @@ export function AppSidebar({ headerData }: AppSidebarProps) {
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarContent>
+      <SidebarContent className="bg-black text-white ">
         {/* Main Navigation */}
         <SidebarGroup>
           <SidebarGroupLabel></SidebarGroupLabel>
@@ -81,7 +81,7 @@ export function AppSidebar({ headerData }: AppSidebarProps) {
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
-                        <SidebarMenuSub>
+                        <SidebarMenuSub className="animate">
                           {item.subItems.map((subItem) => (
                             <SidebarMenuSubItem key={subItem.label}>
                               <Navbar_mobile_Item_wrapper>

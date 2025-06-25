@@ -20,7 +20,7 @@ import { ChevronDown, LogOut, Settings, User } from "lucide-react";
 
 const Navbar_mobile_footer = () => {
   return (
-    <SidebarFooter>
+    <SidebarFooter className="bg-black text-white">
       <SidebarMenu>
         <SidebarMenuItem>
           <DropdownMenu>
@@ -44,7 +44,7 @@ const Navbar_mobile_footer = () => {
               </SidebarMenuButton>
             </DropdownMenuTrigger>
             <DropdownMenuContent
-              className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+              className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg bg-black text-white"
               side="bottom"
               align="end"
               sideOffset={4}

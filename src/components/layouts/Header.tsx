@@ -28,7 +28,7 @@ const Header = ({ refObject, isMobile, headerData }: HeaderProps) => {
         // Desktop version
         // Desktop version
         // Desktop version
-        <div className="Header__desktop z-100 bg-border">
+        <div className="Header__desktop z-10">
           <Navbar_logo
             alt={headerData.header_Logo.alt}
             href={headerData.header_Logo.href}

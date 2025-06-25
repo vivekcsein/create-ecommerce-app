@@ -21,7 +21,7 @@ const Navbar_desktop_dropdown = ({
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="border-0 text-foreground text-[14px]">
+          <NavigationMenuTrigger className="border-0 text-white text-[14px]">
             {dropdownLabel}
           </NavigationMenuTrigger>
           <NavigationMenuContentNavbar>
