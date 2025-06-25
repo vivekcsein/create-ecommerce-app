@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
-import { HamburgerIcon } from "lucide-react";
+import { CircleX, HamburgerIcon } from "lucide-react";
 
 import { useIsMobile } from "@/libs/shadcn/hooks/use-mobile";
 import { cn } from "@/libs/shadcn/utils";
@@ -253,11 +253,16 @@ function Sidebar({
   );
 }
 
+interface sidebarTriggerProps extends React.ComponentProps<typeof Button> {
+  iconName?: string;
+}
+
 function SidebarTrigger({
+  iconName,
   className,
   onClick,
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: sidebarTriggerProps) {
   const { toggleSidebar } = useSidebar();
 
   return (
@@ -273,7 +278,7 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <HamburgerIcon />
+      {iconName ? <CircleX /> : <HamburgerIcon />}
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );

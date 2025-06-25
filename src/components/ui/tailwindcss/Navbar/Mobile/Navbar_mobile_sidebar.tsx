@@ -12,6 +12,7 @@ import {
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarMenuSubItem,
+  SidebarTrigger,
 } from "@/components/ui/shadcn/sidebar";
 import {
   Collapsible,
@@ -19,7 +20,6 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/shadcn/collapsible";
 
-import Navbar_logo from "../Navbar_logo";
 import Navbar_mobile_footer from "./Navbar_mobile_footer";
 import Navbar_Item from "../Navbar_Item";
 import Navbar_mobile_Item_wrapper from "./Navbar_mobile_Item_wrapper";
@@ -51,20 +51,18 @@ export function AppSidebar({ headerData }: AppSidebarProps) {
 
   return (
     <Sidebar side="left" variant="sidebar" collapsible="offcanvas">
-      <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem className="bg-black text-white ">
-            <SidebarMenuButton size="lg" asChild>
-              <Navbar_logo />
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarHeader>
+      <SidebarHeader className="bg-black text-white w-full h-[5vh]"></SidebarHeader>
+      <div className="w-full bg-black pl-5  openSidebarTrigger">
+        <SidebarTrigger
+          className="bg-black cursor-pointer coolBackgroundEffect "
+          iconName={"CrossIcon"}
+        />
+      </div>
 
       <SidebarContent className="bg-black text-white ">
         {/* Main Navigation */}
         <SidebarGroup>
-          <SidebarGroupLabel></SidebarGroupLabel>
+          {/* <SidebarGroupLabel>navbar</SidebarGroupLabel> */}
           <SidebarGroupContent>
             <SidebarMenu>
               {nav_Links.map((item) => (
