@@ -28,7 +28,9 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/images/:path*',
-        destination: `${process.env.GITHUB_IMAGE_URL}/images/:path*`,
+        destination: process.env.GITHUB_IMAGE_URL
+          ? process.env.GITHUB_IMAGE_URL + '/images/:path*'
+          : '/images/:path*',
       },
     ]
   },
