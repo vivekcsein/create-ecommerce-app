@@ -5,10 +5,7 @@ export const fetchAPI = async (endpoint: string, revalidateTime?: number) => {
       method: "GET",
       // cache: "no-cache",
       // Revalidate every after 1 day seconds
-      next:
-        envConfig.APP_ENV === "production"
-          ? { revalidate: revalidateTime ? revalidateTime : 24 * 60 * 60 }
-          : undefined,
+      next: envConfig.APP_ENV === "production" ? { revalidate: revalidateTime ? revalidateTime : 24 * 60 * 60 } : undefined,
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },

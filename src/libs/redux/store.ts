@@ -2,12 +2,15 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import rootLayoutReducer from "./features/rootLayoutSlice";
+import searchFeatureReducer from "./features/searchFeatureSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       // Add your reducers here
       rootLayout: rootLayoutReducer,
+      searchFeature: searchFeatureReducer,
+
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({

@@ -31,7 +31,7 @@ const Navbar_mobile_footer = () => {
               >
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage
-                    src="/placeholder.svg?height=32&width=32"
+                    src="/placeholder.png?height=32&width=32"
                     alt="User"
                   />
                   <AvatarFallback className="rounded-lg">JD</AvatarFallback>

@@ -8,7 +8,7 @@ const _envConfig = {
   APP_PORT: process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000,
   APP_ENV: process.env.APP_ENV || "development",
 };
-
+  
 const _envBackendAPI = {
   APP_BACKEND: process.env.APP_BACKEND || "localhost:7164",
   APP_BACKEND_API_URL:
@@ -31,6 +31,9 @@ const _envAPI_LAYOUT_API = {
   rootLayoutAPI:
     process.env.ROOT_LAYOUT_API ||
     ("http://localhost:3000/api/rootLayout" as string),
+  homepageProuctsAPI:
+    process.env.HOMEPAGE_PRODUCTS_API ||
+    ("http://localhost:3000/api/products/getallproducts" as string),
 };
 
 const _envGoogleClient = {
@@ -38,9 +41,16 @@ const _envGoogleClient = {
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET as string,
   GOOGLE_REDIRECT_URL: process.env.GOOGLE_REDIRECT_URL as string,
 };
+
+const _envGithubAPI = {
+  GITHUB_IMAGE_URL: process.env.GITHUB_IMAGE_URL as string,
+  GITHUB_API_URL: process.env.GITHUB_API_URL as string,
+};
+
 export const envConfig = Object.freeze(_envConfig);
 export const envBackendAPI = Object.freeze(_envBackendAPI);
 export const envFrontendHost = Object.freeze(_envFrontendHost);
 export const googleConfig = Object.freeze(_googleConfig);
 export const envAPI_LAYOUT_API = Object.freeze(_envAPI_LAYOUT_API);
+export const envGithubAPI = Object.freeze(_envGithubAPI);
 export const envGoogleClient = Object.freeze(_envGoogleClient);

@@ -265,6 +265,15 @@ input::placeholder {
   @apply bg-gradient-to-r from-red-500 to-white;
 }
 
+.gradientText {
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* For Firefox */
+  color: transparent;
+}
+
 .textFont {
   font-size: 14px;
 }
@@ -317,4 +326,8 @@ input::placeholder {
 .animate {
   animation: animate-dropdown 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   animation-fill-mode: both;
+}
+
+.gradientText2 {
+  @apply: "text-xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent";
 }

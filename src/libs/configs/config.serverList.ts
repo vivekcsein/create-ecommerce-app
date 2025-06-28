@@ -11,5 +11,6 @@ export const allowedOrigins = [
   `http://${envBackendAPI.APP_BACKEND}`,
   `http://${envFrontendHost.APP_FRONTEND}`,
   `${envBackendAPI.APP_BACKEND}`,
-  `${envAPI_LAYOUT_API.rootLayoutAPI}`
+  `${envAPI_LAYOUT_API.rootLayoutAPI}`,
+  `${envFrontendHost.APP_FRONTEND_API_URL}`
 ];
