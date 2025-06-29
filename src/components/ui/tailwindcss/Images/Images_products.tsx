@@ -1,4 +1,4 @@
-"use client";
+import { imageURLFromGit } from "@/libs/configs/config.helper";
 import { imageDetails } from "@/types/products";
 import Image from "next/image";
 
@@ -6,17 +6,10 @@ interface Product_imageProps {
   images: imageDetails[];
 }
 const Images_products = ({ images }: Product_imageProps) => {
+  const imageURL = imageURLFromGit(images);
   return (
     <Image
-      src={
-        images && images.length > 0
-          ? images[0].src
-            ? images[0].src.startsWith("/")
-              ? images[0].src
-              : "/" + images[0].src
-            : "/placeholder.png"
-          : "/placeholder.png"
-      }
+      src={imageURL}
       alt={images[0].alt}
       width={512}
       height={512}
