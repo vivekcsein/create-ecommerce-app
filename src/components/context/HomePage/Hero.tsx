@@ -1,26 +1,22 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Zap } from "lucide-react";
-import { ProductDetails } from "@/types/products";
-import { getHomePageProducts } from "@/libs/api/api.products";
+import { useSelector } from "react-redux";
+import { RootState } from "@/libs/redux/store";
 
 const Hero = () => {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
   const [animationPhase] = useState(0);
-  const [items, setItems] = React.useState<ProductDetails[] | null>(null);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const products: ProductDetails[] = await getHomePageProducts();
-      const filteredProducts = products.filter((item) => {
-        return item.isTrending === true;
-      });
-      setItems(filteredProducts);
-    };
-    fetchProducts();
-  }, []);
+  const homepageProductsData = useSelector(
+    (state: RootState) => state.products.homepageProductsData
+  );
+
+  const items = homepageProductsData?.filter((item) => {
+    return item.isTrending === true;
+  });
 
   const getGridItemStyle = (index: number) => {
     const styles = [
@@ -39,6 +35,10 @@ const Hero = () => {
     ];
     return styles[index % styles.length];
   };
+
+  if (!items) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <motion.div

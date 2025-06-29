@@ -3,6 +3,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import rootLayoutReducer from "./features/rootLayoutSlice";
 import searchFeatureReducer from "./features/searchFeatureSlice";
+import productReducer from "./features/productsSlice";
 
 export const makeStore = () => {
   return configureStore({
@@ -10,6 +11,7 @@ export const makeStore = () => {
       // Add your reducers here
       rootLayout: rootLayoutReducer,
       searchFeature: searchFeatureReducer,
+      products: productReducer,
 
     },
     middleware: (getDefaultMiddleware) =>

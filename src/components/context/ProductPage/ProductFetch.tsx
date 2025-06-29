@@ -1,7 +1,8 @@
 "use client";
-import { getHomePageProducts } from "@/libs/api/api.products";
-import { productCategories, ProductDetails } from "@/types/products";
 import React from "react";
+import { productCategories } from "@/types/products";
+import { useSelector } from "react-redux";
+import { RootState } from "@/libs/redux/store";
 import Product_catalog from "./Product_catalog";
 
 interface ProductFetchProps {
@@ -9,23 +10,16 @@ interface ProductFetchProps {
   icon: string;
 }
 const ProductFetch: React.FC<ProductFetchProps> = ({ category, icon }) => {
-  const [items, setItems] = React.useState<ProductDetails[] | null>(null);
+  const homepageProductsData = useSelector(
+    (state: RootState) => state.products.homepageProductsData
+  );
 
-  React.useEffect(() => {
-    const fetchProducts = async () => {
-      const products: ProductDetails[] = await getHomePageProducts();
-      const filteredProducts = products.filter((item) => {
-        return item.Category.includes(category);
-      });
-      console.log(filteredProducts);
-
-      setItems(filteredProducts);
-    };
-    fetchProducts();
-  }, [category]);
+  const items = homepageProductsData?.filter((item) => {
+    return item.Category.includes(category);
+  });
 
   if (!items) {
-    return <p>Loading...</p>;
+    return <p>Loading products...</p>;
   }
 
   return (
