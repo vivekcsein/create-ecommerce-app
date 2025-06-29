@@ -8,18 +8,19 @@ import { allowedOrigins } from "@/libs/configs/config.serverList";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
+  const origin = request.headers.get("origin");
+  if (origin && !allowedOrigins.includes(origin)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+  const trendingProducts = products.productsList.filter(
+    (item) => item.isTrending === true
+  );
+  const trendingProductsList: Array<string> = [];
+  trendingProducts.map((item) => {
+    trendingProductsList.push(item.productName);
+  });
 
-    const origin = request.headers.get("origin");
-    if (origin && !allowedOrigins.includes(origin)) {
-        return NextResponse.json({ error: "Forbidden" }, { status: 403 });
-    }
-    const trendingProducts = products.productsList.filter((item) => item.isTrending === true);
-    const trendingProductsList: Array<string> = [];
-    trendingProducts.map((item) => {
-        trendingProductsList.push(item.productName);
-    })
-
-    return NextResponse.json({
-        productsList: trendingProductsList,
-    });
+  return NextResponse.json({
+    productsList: trendingProductsList,
+  });
 }

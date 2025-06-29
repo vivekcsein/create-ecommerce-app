@@ -1,40 +1,40 @@
 export interface ProductDetails {
-    uid: number;
-    Category: Array<productCategories>;
-    isTrending: boolean;
-    productName: string;
-    description: string;
-    currentPrice: number;
-    sellerPrice: number;
-    currentRating: number;
-    totalRating: number;
-    totalReview: number;
-    availableQuantity?: number;
-    color?: string;
-    images: Array<imageDetails>;
-    details: specificationDetails;
+  uid: number;
+  Category: Array<productCategories>;
+  isTrending: boolean;
+  productName: string;
+  description: string;
+  currentPrice: number;
+  sellerPrice: number;
+  currentRating: number;
+  totalRating: number;
+  totalReview: number;
+  availableQuantity?: number;
+  color?: string;
+  images: Array<imageDetails>;
+  details: specificationDetails;
 }
 export interface ProductsJson {
-    version: string;
-    lastUpdated: string;
-    productsList: ProductDetails[];
+  version: string;
+  lastUpdated: string;
+  productsList: ProductDetails[];
 }
 export interface ItemFeatures {
-    weights?: string[];
+  weights?: string[];
 }
 
 export interface imageDetails {
-    uid: number;
-    src: string;
-    alt: string;
+  uid: number;
+  src: string;
+  alt: string;
 }
 
 export interface specificationDetails {
-    sizes?: string[];
-    colors?: string[];
-    material?: string[];
-    pages?: number;
-    features?: Array<ItemFeatures>;
+  sizes?: string[];
+  colors?: string[];
+  material?: string[];
+  pages?: number;
+  features?: Array<ItemFeatures>;
 }
 
 export type apparel = "apparel";
@@ -51,15 +51,13 @@ export type women = "women";
 export type kids = "kids";
 
 export type productCategories =
-    men
-    | women
-    | kids
-    | apparel
-    | electronics
-    | footwear
-    | accessories
-    | beautyPersonalCare
-    | books
-    | sportsOutdoors
-
-
+  | men
+  | women
+  | kids
+  | apparel
+  | electronics
+  | footwear
+  | accessories
+  | beautyPersonalCare
+  | books
+  | sportsOutdoors;

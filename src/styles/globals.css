@@ -266,7 +266,12 @@ input::placeholder {
 }
 
 .gradientText {
-  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--secondary),
+    var(--primary)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

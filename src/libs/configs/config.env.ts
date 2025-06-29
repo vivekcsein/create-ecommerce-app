@@ -8,7 +8,7 @@ const _envConfig = {
   APP_PORT: process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000,
   APP_ENV: process.env.APP_ENV || "development",
 };
-  
+
 const _envBackendAPI = {
   APP_BACKEND: process.env.APP_BACKEND || "localhost:7164",
   APP_BACKEND_API_URL:

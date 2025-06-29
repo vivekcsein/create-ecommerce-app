@@ -27,12 +27,12 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/images/:path*',
+        source: "/images/:path*",
         destination: process.env.GITHUB_IMAGE_URL
-          ? process.env.GITHUB_IMAGE_URL + '/images/:path*'
-          : '/images/:path*',
+          ? process.env.GITHUB_IMAGE_URL + "/images/:path*"
+          : "/images/:path*",
       },
-    ]
+    ];
   },
 };
 

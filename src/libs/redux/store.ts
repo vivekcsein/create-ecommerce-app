@@ -12,7 +12,6 @@ export const makeStore = () => {
       rootLayout: rootLayoutReducer,
       searchFeature: searchFeatureReducer,
       products: productReducer,
-
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
