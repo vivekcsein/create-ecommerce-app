@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import DynamicSVG from "@/components/ui/helper/DynamicSVG";
 import { productCategories, ProductDetails } from "@/types/products";
 import { Button } from "@/components/ui/shadcn/button";
@@ -11,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/shadcn/card";
+import Images_products from "@/components/ui/tailwindcss/Images/Images_products";
 interface Product_catalogProps {
   categoryItems: Array<ProductDetails>;
   categoryName: productCategories;
@@ -54,23 +54,7 @@ const Product_catalog = ({
               className={`${colorClass} transition-all duration-300 hover:shadow-lg`}
             >
               <CardHeader className="pb-4">
-                <Image
-                  src={
-                    item.images && item.images.length > 0
-                      ? item.images[0].src
-                        ? item.images[0].src.startsWith("/")
-                          ? item.images[0].src
-                          : "/" + item.images[0].src
-                        : "/placeholder.png"
-                      : "/placeholder.png"
-                  }
-                  alt={item.images[0].alt}
-                  width={512}
-                  height={512}
-                  className="w-full h-40 object-cover rounded-lg"
-                  loading="lazy"
-                  priority={false}
-                />
+                <Images_products images={item.images} />
               </CardHeader>
               <CardContent>
                 <CardTitle className="text-foreground text-lg mb-2">

@@ -1,10 +1,10 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
-import Image from "next/image";
 import { Zap } from "lucide-react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/libs/redux/store";
+import Images_products from "@/components/ui/tailwindcss/Images/Images_products";
 
 const Hero = () => {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
@@ -75,24 +75,7 @@ const Hero = () => {
             }}
             transition={{ duration: 0.3 }}
           />
-
-          <Image
-            src={
-              item.images && item.images.length > 0
-                ? item.images[0].src
-                  ? item.images[0].src.startsWith("/")
-                    ? item.images[0].src
-                    : "/" + item.images[0].src
-                  : "/placeholder.png"
-                : "/placeholder.png"
-            }
-            alt={item.images[0].alt}
-            width={512}
-            height={512}
-            className="w-full h-40 object-cover rounded-lg"
-            loading="lazy"
-            priority={false}
-          />
+          <Images_products images={item.images} />
 
           <motion.div
             className="absolute inset-0 flex flex-col justify-end p-4"
