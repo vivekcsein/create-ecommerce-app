@@ -23,16 +23,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  //rewrite only works on client components
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: "/images/:path*",
-  //       destination: process.env.GITHUB_IMAGE_URL ? process.env.GITHUB_IMAGE_URL + "/images/:path*"
-  //         : "/images/:path*",
-  //     },
-  //   ];
-  // },
 };
 
 export default nextConfig;

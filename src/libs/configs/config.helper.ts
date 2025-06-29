@@ -1,4 +1,5 @@
 import { imageDetails } from "@/types/products";
+import { envGithubAPI } from "./config.env";
 
 // Helper functions to safely access localStorage (only in browser)
 export const getLocalStorageItem = <T = unknown>(
@@ -43,12 +44,9 @@ export const putLocalStorageItem = (key: string, value: unknown) => {
   }
 };
 
-
 export const imageURLFromGit = (images: imageDetails[], Index?: number) => {
 
-  const gitDestination = process.env.GITHUB_IMAGE_URL
-    ? process.env.GITHUB_IMAGE_URL + "/images/:path*"
-    : "/images/:path*";
+  const gitDestination = envGithubAPI.GITHUB_IMAGE_URL;
 
   const imagePath = images && images.length > 0
     ? images[Index ? Index : 0].src
@@ -59,7 +57,6 @@ export const imageURLFromGit = (images: imageDetails[], Index?: number) => {
     : "/placeholder.png"
 
   const imagePathofGit = (gitDestination + imagePath).toString()
-  console.log(imagePath);
   return imagePathofGit
 
 }

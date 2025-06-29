@@ -43,7 +43,8 @@ const _envGoogleClient = {
 };
 
 const _envGithubAPI = {
-  GITHUB_IMAGE_URL: process.env.GITHUB_IMAGE_URL as string,
+  GITHUB_IMAGE_URL: process.env.GITHUB_IMAGE_URL as string ||
+    "https://raw.githubusercontent.com/vivekcsein/githost/refs/heads/main",
   GITHUB_API_URL: process.env.GITHUB_API_URL as string,
 };
 
