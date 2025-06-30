@@ -15,7 +15,7 @@ const SearchbarQuery_start = () => {
       <Button
         variant={"empty"}
         onClick={() => {
-          console.log("searching now..");
+          // console.log("searching now..");
           redirect(`/search?query=${searchQuery}`);
         }}
         disabled={!searchQuery.trim()}

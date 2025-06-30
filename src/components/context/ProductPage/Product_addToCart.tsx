@@ -18,7 +18,7 @@ const Product_addToCart = () => {
         size="sm"
         className="cursor-pointer bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white border-0"
         onClick={() => {
-          console.log(currentCartItem + "click to add");
+          // console.log(currentCartItem + "click to add");
 
           if (currentCartItem) {
             dispatch(addToLocalCartItem(currentCartItem));

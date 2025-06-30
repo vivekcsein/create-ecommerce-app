@@ -16,7 +16,7 @@ const SearchbarQuery_cancel = () => {
         className=" w-8  center cursor-pointer   transition-colors duration-200 hover:scale-110"
         onClick={(e) => {
           e.preventDefault();
-          console.log("cancel search");
+          // console.log("cancel search");
           dispatch(clearSearchQuery(""));
         }}
       >
