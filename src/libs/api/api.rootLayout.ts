@@ -1,7 +1,8 @@
+"server only"
 import { fetchAPI } from "./api.fetch";
-import { envAPI_LAYOUT_API } from "../configs/config.env";
+import { envRootLayoutConfig } from "../configs/config.env";
 
 export const getRootLayoutAPI = async () => {
-  const data = await fetchAPI(envAPI_LAYOUT_API.rootLayoutAPI);
+  const data = await fetchAPI(envRootLayoutConfig.rootLayoutAPI);
   return data.rootLayoutData;
 };

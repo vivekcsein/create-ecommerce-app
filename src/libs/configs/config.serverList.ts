@@ -1,20 +1,20 @@
 import {
-  envAPI_LAYOUT_API,
-  envBackendAPI,
-  envFrontendHost,
+  envRootLayoutConfig,
+  envBackendConfig,
+  envFrontendConfig,
 } from "./config.env";
 
 export const whiteListedServer = [
-  `http://${envBackendAPI.APP_BACKEND}`,
-  `http://${envFrontendHost.APP_FRONTEND}`,
+  `http://${envBackendConfig.APP_BACKEND}`,
+  `http://${envFrontendConfig.APP_FRONTEND}`,
 ];
 
 export const blackListedIPs = [];
 
 export const allowedOrigins = [
-  `http://${envBackendAPI.APP_BACKEND}`,
-  `http://${envFrontendHost.APP_FRONTEND}`,
-  `${envBackendAPI.APP_BACKEND}`,
-  `${envAPI_LAYOUT_API.rootLayoutAPI}`,
-  `${envFrontendHost.APP_FRONTEND_API_URL}`,
+  `http://${envBackendConfig.APP_BACKEND}`,
+  `http://${envFrontendConfig.APP_FRONTEND}`,
+  `${envBackendConfig.APP_BACKEND}`,
+  `${envRootLayoutConfig.rootLayoutAPI}`,
+  `${envFrontendConfig.APP_FRONTEND_API_URL}`,
 ];

@@ -60,7 +60,7 @@ const Hero = () => {
           onHoverEnd={() => setHoveredItem(null)}
         >
           <motion.div
-            className={`absolute inset-0 bg-gradient-to-br ${item.color ? `bg-${item.color}-500` : "bg-pink-500"} opacity-80`}
+            className={`absolute inset-0 bg-gradient-to-br opacity-80`}
             animate={{
               opacity: hoveredItem === item.uid ? 0.9 : 0.6,
               scale: animationPhase === index % 3 ? 1.1 : 1,
@@ -69,7 +69,7 @@ const Hero = () => {
           />
 
           <motion.div
-            className="absolute inset-0 bg-black/20"
+            className="absolute inset-0 bg-black/20 border-primary"
             animate={{
               opacity: hoveredItem === item.uid ? 0.3 : 0.5,
             }}
@@ -83,8 +83,8 @@ const Hero = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
           >
-            <motion.h4
-              className={`${item.color ? `text-${item.color}-400` : "text-pink-500"} font-bold text-lg mb-1`}
+            <motion.h6
+              className={` text-white font-bold text-lg`}
               animate={{
                 textShadow:
                   hoveredItem === item.uid
@@ -93,15 +93,7 @@ const Hero = () => {
               }}
             >
               {item.productName}
-            </motion.h4>
-            <motion.p
-              className="text-gray-200 text-sm opacity-80"
-              animate={{
-                opacity: hoveredItem === item.uid ? 1 : 0.8,
-              }}
-            >
-              {item.Category[0]}
-            </motion.p>
+            </motion.h6>
           </motion.div>
 
           {/* Hover effects */}
@@ -109,7 +101,7 @@ const Hero = () => {
             {hoveredItem === item.uid && (
               <>
                 <motion.div
-                  className={`absolute inset-0 border-2 ${item.color ? `border-${item.color}-500` : "border-primary"}  rounded-2xl`}
+                  className={`absolute inset-0 border-4 border-primary  rounded-2xl`}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}

@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import { envAPI_LAYOUT_API } from "@/libs/configs/config.env";
-const URL = envAPI_LAYOUT_API.rootLayoutAPI as string;
+import { envRootLayoutConfig } from "@/libs/configs/config.env";
+const URL = envRootLayoutConfig.rootLayoutAPI as string;
 
 export const fetchRootLayout = createAsyncThunk(
   "rootLayout/fetchRootLayout",

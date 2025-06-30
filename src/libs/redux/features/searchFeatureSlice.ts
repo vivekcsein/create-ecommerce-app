@@ -1,5 +1,5 @@
 import axios from "axios";
-import { envFrontendHost } from "@/libs/configs/config.env";
+import { envFrontendConfig } from "@/libs/configs/config.env";
 import {
   getLocalStorageItem,
   setLocalStorageItem,
@@ -10,13 +10,13 @@ import { ProductDetails } from "@/types/products";
 interface SearchState {
   isMainSearchOpen: boolean;
   searchStatus?:
-    | "idle"
-    | "thinking"
-    | "typing"
-    | "querying"
-    | "succeeded"
-    | "failed"
-    | "stopped";
+  | "idle"
+  | "thinking"
+  | "typing"
+  | "querying"
+  | "succeeded"
+  | "failed"
+  | "stopped";
   searchQuery: string;
   recentSearches?: string[];
   trendingSearches?: string[];
@@ -34,9 +34,9 @@ const initialState: SearchState = {
   outputSearchData: [],
 };
 
-const trendingSearchesURL = `${envFrontendHost.APP_FRONTEND_API_URL}/products/trendingproducts`;
-const fetchSearchDataURL = `${envFrontendHost.APP_FRONTEND_API_URL}/products/fetchproducts`;
-const SearchProductDataURL = `${envFrontendHost.APP_FRONTEND_API_URL}/products/searchproducts`;
+const trendingSearchesURL = `${envFrontendConfig.APP_FRONTEND_API_URL}/products/trendingproducts`;
+const fetchSearchDataURL = `${envFrontendConfig.APP_FRONTEND_API_URL}/products/fetchproducts`;
+const SearchProductDataURL = `${envFrontendConfig.APP_FRONTEND_API_URL}/products/searchproducts`;
 
 export const fetchTrendingSearches = createAsyncThunk(
   "searchFeature/fetchTrendingSearches",

@@ -1,8 +1,11 @@
+"server only"
 import { fetchAPI } from "./api.fetch";
-import { envAPI_LAYOUT_API } from "../configs/config.env";
+import { envRootLayoutConfig } from "../configs/config.env";
 
 export const getHomePageProducts = async () => {
-  const url = envAPI_LAYOUT_API.homepageProuctsAPI as string;
+  const url = envRootLayoutConfig.homepageProudctsAPI as string;
   const data = await fetchAPI(url);
+  console.log(data);
+
   return data.productsList;
 };

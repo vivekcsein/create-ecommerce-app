@@ -1,8 +1,8 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { envAPI_LAYOUT_API } from "@/libs/configs/config.env";
+import { envRootLayoutConfig } from "@/libs/configs/config.env";
 import { ProductDetails } from "@/types/products";
-const URL = envAPI_LAYOUT_API.homepageProuctsAPI as string;
+const URL = envRootLayoutConfig.homepageProudctsAPI as string;
 
 export const fetchHomePageData = createAsyncThunk(
   "homepageProductsData/fetchHomePageData",

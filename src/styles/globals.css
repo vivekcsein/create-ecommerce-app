@@ -129,12 +129,12 @@ body {
 /* Code for Firefox */
 ::-moz-selection {
   color: var(--color-white);
-  background: var(--secondary-foreground);
+  background: var(--accent);
 }
 
 ::selection {
   color: var(--color-white);
-  background: var(--secondary-foreground);
+  background: var(--accent);
 }
 
 @layer utilities {
@@ -266,12 +266,10 @@ input::placeholder {
 }
 
 .gradientText {
-  background: linear-gradient(
-    90deg,
-    var(--primary),
-    var(--secondary),
-    var(--primary)
-  );
+  background: linear-gradient(90deg,
+      var(--primary),
+      var(--secondary),
+      var(--primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
