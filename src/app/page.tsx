@@ -1,9 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-const Animation_background = dynamic(
-  () => import("@/components/animations/Animation_background"),
-  { ssr: false }
-);
+
 const Animation_floatingParticles = dynamic(
   () => import("@/components/animations/Animation_floatingParticles"),
   { ssr: false }
@@ -44,7 +41,6 @@ export default function Home() {
       <Product_feature />
       <StratsWithAnimation />
       <Newsletter />
-      <Animation_background />
     </main>
   );
 }
