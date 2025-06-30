@@ -9,7 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/shadcn/navigation-menu";
-import Border from "./Wrapper/Border";
+import Border from "../Wrapper/Border";
 
 const Themes = () => {
   const { setTheme } = useTheme();

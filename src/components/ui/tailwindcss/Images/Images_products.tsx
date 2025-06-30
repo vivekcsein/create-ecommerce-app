@@ -13,7 +13,7 @@ const Images_products = ({ images }: Product_imageProps) => {
       alt={images[0].alt}
       width={512}
       height={512}
-      className="w-full h-40 object-cover rounded-lg"
+      className="w-full h-40 object-cover rounded-lg rounded-b-none"
       loading="lazy"
       priority={false}
     />

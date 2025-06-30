@@ -5,6 +5,8 @@ import { LucideProps } from "lucide-react";
 import { useIsMobile } from "@/libs/shadcn/hooks/use-mobile";
 import { Badge } from "../../shadcn/badge";
 import DynamicSVG from "../../helper/DynamicSVG";
+import { useSelector } from "react-redux";
+import { RootState } from "@/libs/redux/store";
 
 interface Navbar_ItemProps {
   item: {
@@ -21,6 +23,9 @@ interface Navbar_ItemProps {
 const Navbar_Item = ({
   item: { label, href, Icon, badge },
 }: Navbar_ItemProps) => {
+  const localCartItems = useSelector(
+    (state: RootState) => state.cart.localCartItems
+  );
   const isMobile = useIsMobile();
 
   return (
@@ -42,7 +47,7 @@ const Navbar_Item = ({
       </div>
       {badge && (
         <Badge className="ml-auto h-5 w-5 rounded-full p-0 text-xs">
-          {badge}
+          {localCartItems.length > 0 ? localCartItems.length : badge}
         </Badge>
       )}
     </Link>

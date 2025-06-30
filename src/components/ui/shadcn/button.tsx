@@ -24,7 +24,7 @@ const buttonVariants = cva(
         coolButton: "coolLink cursor-pointer",
         submit: "submitBtn",
         gradient:
-          "cursor-pointer lg:max-w-[200px] bg-gradient-to-r from-primary-foreground to-secondary-foreground hover:from-primary hover:to-secondary text-white font-medium",
+          "cursor-pointer lg:max-w-[200px] bg-gradient-to-r from-primary to-background  hover:from-primary hover:to-secondary text-white font-medium",
         empty: "cursor-pointer",
       },
       size: {

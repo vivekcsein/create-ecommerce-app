@@ -8,7 +8,7 @@ import {
   NavigationMenuTrigger,
 } from "../../../shadcn/navigation-menu";
 import Navbar_Link from "../Navbar_Link";
-import Border from "@/components/layouts/Wrapper/Border";
+import Border from "@/components/Wrapper/Border";
 
 const Navbar_desktop_dropdown = ({
   dropdownData,

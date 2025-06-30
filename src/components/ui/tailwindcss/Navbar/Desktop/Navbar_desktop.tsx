@@ -4,6 +4,7 @@ import Themes from "@/components/layouts/Themes";
 import Navbar_Link from "../Navbar_Link";
 import Navbar_User from "../Navbar_User";
 import Navbar_Auth from "../Navbar_Auth";
+import Cart_header from "../../cart/Cart_header";
 
 const Navbar_desktop = ({
   navbarData,
@@ -41,9 +42,9 @@ const Navbar_desktop = ({
         <li className="center ">
           {isAuthenticated ? <Navbar_User /> : <Navbar_Auth />}
         </li>
-        {/* <li className="center ">
+        <li className="center ">
           <Cart_header />
-        </li> */}
+        </li>
       </ul>
     </nav>
   );

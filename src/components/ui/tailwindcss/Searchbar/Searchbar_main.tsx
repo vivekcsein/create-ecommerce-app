@@ -8,7 +8,7 @@ import Searchbar_TrendingList from "./Searchbar_TrendingList";
 import SearchbarQuery_start from "./SearchbarQuery_start";
 import SearchbarQuery_cancel from "./SearchbarQuery_cancel";
 import { clearSearchQuery } from "@/libs/redux/features/searchFeatureSlice";
-import Wrapper_searchbar from "@/components/layouts/Wrapper/Wrapper_searchbar";
+import Wrapper_searchbar from "@/components/Wrapper/Wrapper_searchbar";
 
 const Searchbar_main = () => {
   const dispatch = useDispatch();

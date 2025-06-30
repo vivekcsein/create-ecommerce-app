@@ -44,21 +44,28 @@ export const putLocalStorageItem = (key: string, value: unknown) => {
   }
 };
 
-export const imageURLFromGit = (images: imageDetails[], Index?: number) => {
+export const imageURLFromGit = (images: imageDetails[] | string, Index?: number) => {
 
   const gitDestination = envGithubConfig.GITHUB_IMAGE_URL;
 
+
   if (gitDestination) {
     const newIndex = Index ? Index : 0;
-    const imagePath =
-      Array.isArray(images) && images.length > newIndex && images[newIndex]?.src
-        ? images[newIndex].src.startsWith("/")
-          ? images[newIndex].src
-          : "/" + images[newIndex].src
-        : "/placeholder.png";
-    const imagePathofGit = (gitDestination + imagePath).toString()
+    if (typeof images === "string") {
+      const imagePathofGit = (gitDestination + images).toString()
+      return imagePathofGit
+    }
+    else {
+      const imagePath =
+        Array.isArray(images) && images.length > newIndex && images[newIndex]?.src
+          ? images[newIndex].src.startsWith("/")
+            ? images[newIndex].src
+            : "/" + images[newIndex].src
+          : "/placeholder.png";
+      const imagePathofGit = (gitDestination + imagePath).toString()
+      return imagePathofGit
+    }
     // console.log(imagePathofGit);
-    return imagePathofGit
   } else {
     return "/placeholder.png"
   }

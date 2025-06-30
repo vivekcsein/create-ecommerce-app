@@ -37,7 +37,7 @@ const accountItems = [
     label: "Cart",
     href: "/cart",
     Icon: ShoppingCart,
-    badge: "3",
+    badge: "0",
   },
 ];
 

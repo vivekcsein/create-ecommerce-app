@@ -1,6 +1,5 @@
 import React from "react";
 import { ProductDetails } from "@/types/products";
-import { Button } from "@/components/ui/shadcn/button";
 import Product_starRating from "./Product_starRating";
 import {
   Card,
@@ -10,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/shadcn/card";
 import Images_products from "@/components/ui/tailwindcss/Images/Images_products";
+import Product_addToCartDirectly from "./Product_addToCartDirectly";
 
 interface Product_cardProps {
   Item: ProductDetails;
@@ -31,8 +31,10 @@ const Product_card = ({ Item }: Product_cardProps) => {
   //   colorClassMap[Item.color as keyof typeof colorClassMap] ||
   //   colorClassMap[""];
   return (
-    <Card className={` transition-all duration-300 hover:shadow-lg`}>
-      <CardHeader className="pb-4">
+    <Card
+      className={`min-w-[300px] bg-gradient-to-r pt-0 from-primary to-background transition-all duration-300 hover:shadow-lg`}
+    >
+      <CardHeader className="pb-4 px-0 ">
         <Images_products images={Item.images} />
       </CardHeader>
       <CardContent>
@@ -48,12 +50,7 @@ const Product_card = ({ Item }: Product_cardProps) => {
         <span className="text-xl font-bold text-pink-400">
           ${Item.currentPrice}
         </span>
-        <Button
-          size="sm"
-          className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white border-0"
-        >
-          Add to Cart
-        </Button>
+        <Product_addToCartDirectly Item={Item} />
       </CardFooter>
     </Card>
   );

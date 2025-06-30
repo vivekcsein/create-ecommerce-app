@@ -5,9 +5,11 @@ import { Zap } from "lucide-react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/libs/redux/store";
 import Images_products from "@/components/ui/tailwindcss/Images/Images_products";
+import { useIsMobile } from "@/libs/shadcn/hooks/use-mobile";
 
 const Hero = () => {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const isMobile = useIsMobile();
   const [animationPhase] = useState(0);
 
   const homepageProductsData = useSelector(
@@ -19,7 +21,8 @@ const Hero = () => {
   });
 
   const getGridItemStyle = (index: number) => {
-    const styles = [
+    // Desktop grid styles
+    const desktopStyles = [
       { gridArea: "1 / 1 / 3 / 3" }, // Large square
       { gridArea: "1 / 3 / 2 / 5" }, // Wide rectangle
       { gridArea: "1 / 5 / 3 / 6" }, // Tall rectangle
@@ -33,7 +36,12 @@ const Hero = () => {
       { gridArea: "4 / 4 / 6 / 5" }, // Tall rectangle
       { gridArea: "4 / 5 / 5 / 6" }, // Small square
     ];
-    return styles[index % styles.length];
+    // Mobile grid styles (single column)
+    const mobileStyles = [{ gridArea: `auto / 1 / auto / 2` }];
+    if (isMobile) {
+      return mobileStyles[0];
+    }
+    return desktopStyles[index % desktopStyles.length];
   };
 
   if (!items) {

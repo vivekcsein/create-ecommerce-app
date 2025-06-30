@@ -1,9 +1,9 @@
 "use client";
-
 import { configureStore } from "@reduxjs/toolkit";
 import rootLayoutReducer from "./features/rootLayoutSlice";
 import searchFeatureReducer from "./features/searchFeatureSlice";
 import productReducer from "./features/productsSlice";
+import cartReducer from "./features/cartSlice";
 
 export const makeStore = () => {
   return configureStore({
@@ -12,6 +12,7 @@ export const makeStore = () => {
       rootLayout: rootLayoutReducer,
       searchFeature: searchFeatureReducer,
       products: productReducer,
+      cart: cartReducer,
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
