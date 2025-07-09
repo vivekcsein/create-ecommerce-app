@@ -217,7 +217,7 @@
     },
     {
       "uid": 9,
-      "Category": ["kids"],
+      "Category": ["kids", "apparel"],
       "isTrending": false,
       "productName": "Graphic Hoodie",
       "description": "Comfortable hoodie with fun prints, suitable for all seasons.",
@@ -399,7 +399,7 @@
     },
     {
       "uid": 16,
-      "Category": ["sports & outdoors"],
+      "Category": ["sports & outdoors", "wellness"],
       "isTrending": true,
       "productName": "Adjustable Dumbbell Set",
       "description": "Space-saving and adjustable weights for home workouts.",

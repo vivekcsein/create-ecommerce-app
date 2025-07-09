@@ -1,9 +1,7 @@
-"server only"
-import { config } from "dotenv";
-config();
+"server-only";
 
 const _envAppConfig = {
-  APP_NAME: process.env.APP_NAME || "Create-Frontend-Template",
+  APP_NAME: process.env.APP_NAME || "Create-Frontend-Template-2025",
   APP_VERSION: process.env.APP_VERSION || "1.0.0",
   APP_HOST: process.env.APP_HOST || "localhost",
   APP_PORT: process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000,
@@ -33,16 +31,17 @@ const _envRootLayoutConfig = {
 };
 
 const _envGoogleConfig = {
-  GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID as string || "google-client-id",
+  GOOGLE_CLIENT_ID:
+    (process.env.GOOGLE_CLIENT_ID as string) || "google-client-id",
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET as string,
   GOOGLE_REDIRECT_URL: process.env.GOOGLE_REDIRECT_URL as string,
   GOOGLE_VERIFICATION:
     process.env.GOOGLE_VERIFICATION || "google-verification-code",
-
 };
 
 const _envGithubConfig = {
-  GITHUB_IMAGE_URL: process.env.GITHUB_IMAGE_URL as string ||
+  GITHUB_IMAGE_URL:
+    (process.env.GITHUB_IMAGE_URL as string) ||
     "https://raw.githubusercontent.com/vivekcsein/githost/refs/heads/main",
   GITHUB_API_URL: process.env.GITHUB_API_URL as string,
 };

@@ -1,6 +1,11 @@
-"server only"
+"server only";
 import { envAppConfig } from "../configs/config.env";
-export const fetchAPI = async (endpoint: string, revalidateTime?: number) => {
+import { envRootLayoutConfig } from "../configs/config.env";
+
+export const callFetchAPI = async (
+  endpoint: string,
+  revalidateTime?: number
+) => {
   try {
     const res = await fetch(`${endpoint}`, {
       method: "GET",
@@ -20,4 +25,11 @@ export const fetchAPI = async (endpoint: string, revalidateTime?: number) => {
   } catch (err) {
     console.error(err + "Failed to fetch data");
   }
+};
+
+// Fetch root layout data from the API
+// This is used in src/app/layout.tsx
+export const getRootLayoutAPI = async () => {
+  const data = await callFetchAPI(envRootLayoutConfig.rootLayoutAPI);
+  return data.rootLayoutData;
 };

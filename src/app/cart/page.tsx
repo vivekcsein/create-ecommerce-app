@@ -1,4 +1,4 @@
-import Cart_main from "@/components/ui/tailwindcss/cart/Cart_main";
+import Cart_main from "@/components/context/cart/Cart_main";
 import React from "react";
 
 const page = () => {

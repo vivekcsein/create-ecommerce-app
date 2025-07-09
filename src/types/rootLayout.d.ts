@@ -7,39 +7,31 @@ type rootLayoutData = {
 };
 //header data type
 type HeaderData = {
-  header_Logo: header_Logo;
-  navbar: navbar;
+  header_logo: image | string;
+  navbarlinks: Array<extendedNavlink>;
 };
-type header_Logo = {
+
+//footer data type
+type FooterData = {
+  footer_logo: image | string;
+  copyright_message: string;
+  footerlinks: Array<extendedNavlink>;
+};
+
+interface navlink {
+  id: number;
+  label: string;
+  href?: string;
+  icon?: string;
+}
+
+interface extendedNavlink extends navlink {
+  discription?: string;
+  sublinks?: Array<navlink>;
+}
+
+type image = {
   src: string;
   alt: string;
   href: string;
 };
-type navbar = {
-  nav_Links: Array<nav_Links>;
-};
-interface nav_Links {
-  id: number;
-  href: string;
-  label: string;
-  icon?: string;
-  subItems?: Array<nav_Links>;
-}
-//footer data type
-type FooterData = {
-  footer_logo: string;
-  copyright_message: string;
-  footer_Links: Array<footer_Links>;
-};
-
-interface footer_Links {
-  id: number;
-  title: string;
-  links: Array<links> | string;
-}
-
-interface links {
-  id: number;
-  label: string;
-  href: string;
-}

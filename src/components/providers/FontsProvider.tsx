@@ -1,7 +1,7 @@
 "use client";
 import { roboto, poppins } from "@/libs/configs/config.styles";
 
-const FontsProvider = ({ children }: { children: React.ReactNode }) => {
+const Fontsprovider = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       {children}
@@ -25,4 +25,4 @@ const FontsProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default FontsProvider;
+export default Fontsprovider;

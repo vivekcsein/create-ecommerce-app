@@ -1,17 +1,38 @@
 import React from "react";
-import "../../styles/sass/components/Header.scss";
-import { MobileHeader } from "@/components/ui/tailwindcss/Navbar/Mobile/Navbar_mobile";
-import { AppSidebar } from "../ui/tailwindcss/Navbar/Mobile/Navbar_mobile_sidebar";
-import { SidebarProvider } from "../ui/shadcn/sidebar";
-import Navbar_desktop from "../ui/tailwindcss/Navbar/Desktop/Navbar_desktop";
-import Navbar_logo from "../ui/tailwindcss/Navbar/Navbar_logo";
+import "@/styles/css/Header.css";
+import Navbar_logo from "../context/navbar/Navbar_logo";
+import Navbar_desktop from "../context/navbar/desktop/Navbar_desktop";
+import Navbar_mobile from "../context/navbar/mobile/Navbar_mobile";
 
 interface HeaderProps {
   isMobile: boolean;
   headerData: HeaderData;
   refObject: React.RefObject<HTMLDivElement | null>;
+  isAuthenticated?: boolean;
 }
-const Header = ({ refObject, isMobile, headerData }: HeaderProps) => {
+
+const Header = ({
+  refObject,
+  isMobile,
+  headerData,
+  isAuthenticated,
+}: HeaderProps) => {
+  // Check if logo data is provided and set default values
+  const logo = "";
+  // typeof headerData.header_logo === "object" &&
+  // headerData.header_logo !== null
+  //   ? {
+  //       // Destructure the logo object and provide defaults
+  //       src: headerData.header_logo.src,
+  //       alt: headerData.header_logo.alt,
+  //       href: headerData.header_logo.href,
+  //     }
+  //   : {
+  //       src: "/images/logo.png",
+  //       alt: "Logo",
+  //       href: "/",
+  //     };
+
   return (
     <header className="Header" ref={refObject}>
       {isMobile ? (
@@ -19,24 +40,20 @@ const Header = ({ refObject, isMobile, headerData }: HeaderProps) => {
         // Phone version
         // Phone version
         <div className="Header__phone">
-          <SidebarProvider defaultOpen={false} className="relative">
-            <AppSidebar headerData={headerData} />
-            <MobileHeader />
-          </SidebarProvider>
+          <Navbar_mobile
+            navlinks={headerData.navbarlinks}
+            isAuthenticated={isAuthenticated || false}
+          />
         </div>
       ) : (
         // Desktop version
         // Desktop version
         // Desktop version
-        <div className="Header__desktop z-10">
-          <Navbar_logo
-            alt={headerData.header_Logo.alt}
-            href={headerData.header_Logo.href}
-          />
-
+        <div className="Header__desktop">
+          <Navbar_logo image={logo} label={"Six Teal"} />
           <Navbar_desktop
-            navbarData={headerData.navbar}
-            isAuthenticated={true}
+            navbarlinks={headerData.navbarlinks}
+            isAuthenticated={isAuthenticated || false}
           />
         </div>
       )}

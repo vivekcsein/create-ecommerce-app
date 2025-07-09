@@ -1,7 +1,7 @@
 import {
   envRootLayoutConfig,
   envBackendConfig,
-  envFrontendConfig,
+  envFrontendConfig
 } from "./config.env";
 
 export const whiteListedServer = [
@@ -17,4 +17,13 @@ export const allowedOrigins = [
   `${envBackendConfig.APP_BACKEND}`,
   `${envRootLayoutConfig.rootLayoutAPI}`,
   `${envFrontendConfig.APP_FRONTEND_API_URL}`,
+];
+
+export const allowedMethods = [
+  "GET",
+  "POST",
+  "PUT",
+  "PATCH",
+  "DELETE",
+  "OPTIONS",
 ];

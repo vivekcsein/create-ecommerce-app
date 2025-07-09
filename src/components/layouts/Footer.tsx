@@ -1,48 +1,58 @@
+import { Mail } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
-interface HeaderProps {
+interface FooterProps {
+  footerData: FooterData;
   isMobile?: boolean;
 }
 
-const Footer = ({}: HeaderProps) => {
+const Footer = ({ footerData }: FooterProps) => {
+  const { footerlinks, copyright_message } = footerData;
+
   return (
-    <footer className=" border-t py-12 px-4">
-      <div className="container mx-auto">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="gradientText">Six Teal</h3>
-            <p className="text-muted-foreground">
-              Your futuristic shopping destination for the latest in tech,
-              fashion, and knowledge.
-            </p>
+    <footer>
+      {/* Main Footer Content */}
+      <div className="py-12 px-4 sm:px-8 md:px-12 lg:px-24 flex flex-col sm:flex-row justify-between items-start space-y-8 sm:space-y-0 gap-4">
+        {footerlinks.map((footerlink, index) => (
+          <div key={index} className=" sm:mb-0 mb-4">
+            {footerlink.discription ? (
+              <FooterDesc {...footerlink} />
+            ) : footerlink.sublinks && footerlink.sublinks.length > 0 ? (
+              <>
+                <FooterLinkDisplay
+                  links={footerlink.sublinks}
+                  heading={footerlink.label}
+                />
+              </>
+            ) : (
+              <Link
+                href={footerlink.href || "#"}
+                className="hover:text-primary transition-colors text-muted-foreground text-sm"
+              >
+                {footerlink.label}
+              </Link>
+            )}
           </div>
-          <div>
-            <h4 className="text-foreground font-semibold mb-4">Categories</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>Clothing</li>
-              <li>Electronics</li>
-              <li>Books</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-foreground font-semibold mb-4">Support</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>Help Center</li>
-              <li>Returns</li>
-              <li>Shipping Info</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-foreground font-semibold mb-4">Connect</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>Twitter</li>
-              <li>Instagram</li>
-              <li>Discord</li>
-            </ul>
-          </div>
+        ))}
+        <div className="mb-8 sm:mb-0   ">
+          <FooterContactInfo />
         </div>
-        <div className="border-t border-purple-500/20 mt-8 pt-8 text-center text-muted-foreground">
-          <p>&copy; 2025 Six Teal. All rights reserved.</p>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="px-6 py-6 border-border flex flex-col md:flex-row justify-between items-center">
+        <p className="text-muted-foreground text-sm">{copyright_message}</p>
+        <div className="flex space-x-6 text-sm text-muted-foreground mt-4 md:mt-0">
+          <Link href="#" className="hover:text-primary transition-colors">
+            Privacy Policy
+          </Link>
+          <Link href="#" className="hover:text-primary transition-colors">
+            Terms of Service
+          </Link>
+          <Link href="#" className="hover:text-primary transition-colors">
+            Cookie Policy
+          </Link>
         </div>
       </div>
     </footer>
@@ -50,3 +60,52 @@ const Footer = ({}: HeaderProps) => {
 };
 
 export default Footer;
+
+const FooterDesc = (link: extendedNavlink) => {
+  return (
+    <>
+      <Link href="/" className="flex items-center mb-4">
+        <h4>{link.label}</h4>
+      </Link>
+      <p className="text-muted-foreground mb-6 max-w-md">{link.discription}</p>
+    </>
+  );
+};
+
+const FooterContactInfo = () => {
+  return (
+    <div className="space-y-4">
+      <h4>Contact</h4>
+      <ul className="space-y-3 text-muted-foreground">
+        <li className="flex items-center">
+          <Mail className="h-4 w-4 mr-2 text-primary" />
+          contact@sixteal.com
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+const FooterLinkDisplay = ({
+  links,
+  heading,
+}: {
+  links: extendedNavlink[];
+  heading: string;
+}) => {
+  return (
+    <ul className="space-y-1 w-full flex flex-col justify-baseline">
+      <h4 className="mb-2">{heading}</h4>
+      {links.map((link) => (
+        <li key={link.id} className=" mb-2">
+          <Link
+            href={link.href || "#"}
+            className="text-muted-foreground transition-colors text-sm coolLink"
+          >
+            {link.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+};

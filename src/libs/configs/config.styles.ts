@@ -32,45 +32,30 @@ export const lora = Lora({
   variable: "--font-lora",
 });
 
-export const colors = [
+export const fontFamilies = [
   {
     id: "01",
-    name: "background",
-    code: "#000000",
+    name: "Roboto",
+    variable: roboto.variable,
   },
   {
     id: "02",
-    name: "primary",
-    code: "#dd00ff",
+    name: "Poppins",
+    variable: poppins.variable,
   },
   {
     id: "03",
-    name: "secondary",
-    code: "#6600ff",
+    name: "Nunito",
+    variable: nunito.variable,
   },
   {
     id: "04",
-    name: "accent",
-    code: "#10ff10",
+    name: "Cabin",
+    variable: cabin.variable,
   },
   {
     id: "05",
-    name: "destructive",
-    code: "#ff0000",
-  },
-  {
-    id: "06",
-    name: "muted",
-    code: "#ededed",
-  },
-  {
-    id: "07",
-    name: "shadow",
-    code: "#00000033",
-  },
-  {
-    id: "08",
-    name: "border",
-    code: "#ffccff",
+    name: "Lora",
+    variable: lora.variable,
   },
 ];

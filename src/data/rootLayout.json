@@ -1,82 +1,75 @@
 {
   "rootLayoutData": {
     "HeaderData": {
-      "header_Logo": {
+      "header_logo": {
         "src": "/logo.png",
         "alt": "Logo",
         "href": "/"
       },
-      "navbar": {
-        "nav_Links": [
-          { "id": 1, "href": "/", "label": "Home", "icon": "House" },
-          {
-            "id": 2,
-            "href": "/Categories",
-            "label": "Explore",
-            "icon": "Package",
-            "subItems": [
-              {
-                "id": 1,
-                "href": "/products/electronics",
-                "label": "Electronics",
-                "icon": "Smartphone"
-              },
-              {
-                "id": 2,
-                "href": "/products/clothing",
-                "label": "Clothing",
-                "icon": "Shirt"
-              },
-              { "id": 3, "href": "/", "label": "Books", "icon": "BookOpen" }
-            ]
-          },
-          {
-            "id": 3,
-            "href": "/Trending",
-            "label": "Trends",
-            "icon": "TrendingUp"
-          }
-        ]
-      }
-    },
-    "FooterData": {
-      "footer_logo": "",
-      "copyright_message": "Copyright © 2024 Vivek.inc All Right are Reserved",
-
-      "footer_Links": [
-        {
-          "id": 1,
-          "title": "Top Products",
-          "href": "/Trending"
-        },
+      "navbarlinks": [
+        { "id": 1, "href": "/", "label": "Home", "icon": "House" },
         {
           "id": 2,
-          "title": "About US",
-          "links": [
-            { "id": 1, "label": "About us", "href": "/AboutUS" },
-            { "id": 2, "label": "FAQs", "href": "/FAQs" },
-            { "id": 3, "label": "How It Works", "href": "/HowItWorks" },
+          "href": "/Categories",
+          "label": "Explore",
+          "icon": "Package",
+          "sublinks": [
             {
-              "id": 4,
-              "label": "Privacy Policy",
-              "href": "/PrivacyPolicy"
+              "id": 1,
+              "href": "/products/electronics",
+              "label": "Electronics",
+              "icon": "Smartphone"
             },
             {
-              "id": 5,
-              "label": "Payment Policy",
-              "href": "/PaymentPolicy"
+              "id": 2,
+              "href": "/products/clothing",
+              "label": "Clothing",
+              "icon": "Shirt"
+            },
+            {
+              "id": 3,
+              "href": "/products/books",
+              "label": "Books",
+              "icon": "BookOpen"
             }
           ]
         },
         {
           "id": 3,
-          "title": "Get in touch",
-          "links": [
+          "href": "/Trending",
+          "label": "Trends",
+          "icon": "TrendingUp"
+        }
+      ]
+    },
+    "FooterData": {
+      "footer_logo": "",
+      "copyright_message": "Copyright © 2025 six teal All Right are Reserved.",
+
+      "footerlinks": [
+        {
+          "id": 1,
+          "label": "Six Teal",
+          "href": "https://six-teal.com",
+          "discription": "Your futuristic shopping destination for the latest in tech, fashion, and knowledge."
+        },
+        {
+          "id": 2,
+          "label": "Services",
+          "sublinks": [
             {
               "id": 1,
-              "label": "Subscribe Now",
-              "href": "/"
-            }
+              "href": "/products/electronics",
+              "label": "Electronics",
+              "icon": "Smartphone"
+            },
+            {
+              "id": 2,
+              "href": "/products/clothing",
+              "label": "Clothing",
+              "icon": "Shirt"
+            },
+            { "id": 3, "href": "/", "label": "Books", "icon": "BookOpen" }
           ]
         }
       ]

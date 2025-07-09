@@ -28,7 +28,6 @@ export interface imageDetails {
   src: string;
   alt: string;
 }
-
 export interface specificationDetails {
   sizes?: string[];
   colors?: string[];
@@ -37,27 +36,42 @@ export interface specificationDetails {
   features?: Array<ItemFeatures>;
 }
 
+// featured categories
 export type apparel = "apparel";
-export type footwear = "footwear";
-export type accessories = "accessories";
-export type homeKitchen = "home & kitchen";
 export type electronics = "electronics";
-export type beautyPersonalCare = "beauty & personal care";
 export type books = "books";
-export type sportsOutdoors = "sports & outdoors";
+export type accessories = "accessories";
+export type fragrance = "fragrance";
+export type wellness = "wellness";
 
+//extended categories
+export type footwear = "footwear";
+export type sportsOutdoors = "sports & outdoors";
+export type beautyPersonalCare = "beauty & personal care";
+export type homeKitchen = "home & kitchen";
+
+//user categories
 export type men = "men";
 export type women = "women";
 export type kids = "kids";
 
-export type productCategories =
-  | men
-  | women
-  | kids
-  | apparel
-  | electronics
-  | footwear
-  | accessories
-  | beautyPersonalCare
-  | books
-  | sportsOutdoors;
+// 🎯 Base Category Types
+export type UserCategory = "men" | "women" | "kids";
+
+export type FeaturedCategory =
+  | "apparel"
+  | "electronics"
+  | "books"
+  | "fragrance"
+  | "accessories"
+  | "wellness";
+
+// 🧩 Combined Category Types
+export type FilteredCategory =
+  | FeaturedCategory
+  | "footwear"
+  | "sports & outdoors"
+  | "beauty & personal care"
+  | "home & kitchen";
+
+export type productCategories = UserCategory | FilteredCategory;

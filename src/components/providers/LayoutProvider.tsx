@@ -1,19 +1,22 @@
 "use client";
+
+import { useDispatch } from "react-redux";
+import React, { useEffect, useRef } from "react";
+import { useIsMobile } from "@/libs/hooks/use-mobile";
+import Animate_header from "../animations/Animate_header";
+import Header from "@/components/layouts/Header";
+import Footer from "@/components/layouts/Footer";
+import { ProductDetails } from "@/types/products";
+import { setHomepageProductsData } from "@/libs/redux/features/productsSlice";
+
 import {
   setFooterData,
   setHeaderData,
   setRootLayoutData,
 } from "@/libs/redux/features/rootLayoutSlice";
-import React, { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
-import Header from "@/components/layouts/Header";
-import Footer from "@/components/layouts/Footer";
-import { useIsMobile } from "@/libs/shadcn/hooks/use-mobile";
-import Header_animation from "../animations/Header_animation";
-import { ProductDetails } from "@/types/products";
-import { setHomepageProductsData } from "@/libs/redux/features/productsSlice";
+import { AnimationProvider } from "./Animationprovider";
 
-const LayoutProvider = ({
+const Layoutprovider = ({
   rootLayoutData,
   homepageProductsData,
   children,
@@ -45,12 +48,17 @@ const LayoutProvider = ({
         isMobile={isMobile}
         headerData={HeaderData}
         refObject={headerRef}
+        isAuthenticated={true}
       />
-      {children}
-      <Footer isMobile={isMobile} />
-      <Header_animation refObject={headerRef}></Header_animation>
+      <AnimationProvider>
+        <main className="flex-1 overflow-hidden min-h-screen">
+          <div className="mx-auto ">{children}</div>
+        </main>
+      </AnimationProvider>
+      <Footer isMobile={isMobile} footerData={FooterData} />
+      <Animate_header refObject={headerRef}></Animate_header>
     </>
   );
 };
 
-export default LayoutProvider;
+export default Layoutprovider;

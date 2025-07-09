@@ -1,17 +1,22 @@
+// File: src/app/layout.tsx created by the developer @vivekcsein
 import "../styles/globals.css";
 import type { Metadata } from "next";
 import { poppins, roboto } from "@/libs/configs/config.styles";
-import FontsProvider from "@/components/providers/FontsProvider";
-import StoreProvider from "@/components/providers/StoreProvider";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import LayoutProvider from "@/components/providers/LayoutProvider";
-import { getRootLayoutAPI } from "@/libs/api/api.rootLayout";
+
+//import all providers to wrap the app
+import Fontsprovider from "@/components/providers/Fontsprovider";
+import Themesprovider from "@/components/providers/Themesprovider";
+import Layoutprovider from "@/components/providers/Layoutprovider";
+import Storeprovider from "@/components/providers/Storeprovider";
+
+// call rootlayout API
+import { getRootLayoutAPI } from "@/libs/api/api.fetch";
 import { ProductDetails } from "@/types/products";
 import { getHomePageProducts } from "@/libs/api/api.products";
 
 export const metadata: Metadata = {
   title: "Six Teal",
-  description: "%{description} | Title",
+  description: "%{description} | Six Teal a fashion brand",
 };
 
 export default async function RootLayout({
@@ -19,31 +24,31 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const rootLayoutJson: Promise<rootLayoutData> = getRootLayoutAPI();
-  const homepageProductsJson: Promise<ProductDetails[]> = getHomePageProducts();
-  const rootLayoutData = await rootLayoutJson;
-  const homepageProductsData = await homepageProductsJson;
+  const [rootLayoutData, homepageProductsData]: [
+    rootLayoutData,
+    ProductDetails[],
+  ] = await Promise.all([getRootLayoutAPI(), getHomePageProducts()]);
 
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${poppins.variable} antialiased`}>
-        <StoreProvider>
-          <ThemeProvider
+        <Storeprovider>
+          <Themesprovider
             attribute="class"
             defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
-            <FontsProvider>
-              <LayoutProvider
+            <Fontsprovider>
+              <Layoutprovider
                 rootLayoutData={rootLayoutData}
                 homepageProductsData={homepageProductsData}
               >
                 {children}
-              </LayoutProvider>
-            </FontsProvider>
-          </ThemeProvider>
-        </StoreProvider>
+              </Layoutprovider>
+            </Fontsprovider>
+          </Themesprovider>
+        </Storeprovider>
       </body>
     </html>
   );

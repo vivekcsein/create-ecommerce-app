@@ -5,42 +5,43 @@ const Animation_floatingParticles = dynamic(
   () => import("@/components/animations/Animation_floatingParticles"),
   { ssr: false }
 );
-const Product_feature = dynamic(
-  () => import("@/components/context/ProductPage/Product_feature"),
+const ProductsFeatures = dynamic(
+  () => import("@/components/content/Productpage/ProductsFeatures"),
   { ssr: false }
 );
-const CTA = dynamic(() => import("@/components/context/HomePage/CTA"), {
+const CTA = dynamic(() => import("@/components/content/homepage/CTA"), {
   ssr: false,
 });
-const Hero = dynamic(() => import("@/components/context/HomePage/Hero"), {
+
+const Herov2 = dynamic(() => import("@/components/content/homepage/Herov2"), {
   ssr: false,
 });
 const Newsletter = dynamic(
-  () => import("@/components/context/HomePage/Newsletter"),
+  () => import("@/components/content/homepage/Newsletter"),
   { ssr: false }
 );
 const Searchbar = dynamic(() => import("@/components/layouts/Searchbar"), {
   ssr: false,
 });
 const StratsWithAnimation = dynamic(
-  () => import("@/components/context/HomePage/StratsWithAnimation"),
+  () => import("@/components/content/homepage/StratsWithAnimation"),
   { ssr: false }
 );
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <section>
       <Animation_floatingParticles />
-      <Searchbar />
-      <div className="w-full flex justify-between items-center">
-        <div className="w-full px-16  ">
-          <Hero />
+      <div className="w-full center">
+        <div className="lg:w-full px-2 lg:px-16">
+          <Herov2 />
+          <Searchbar />
         </div>
       </div>
+      <ProductsFeatures />
       <CTA />
-      <Product_feature />
       <StratsWithAnimation />
       <Newsletter />
-    </main>
+    </section>
   );
 }

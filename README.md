@@ -28,3 +28,23 @@ A Full Stack Frontend E-commerce Project
 <li> <i>State Management:</i> <b><a target="_blank"href="https://www.npmjs.com/package/@reduxjs/toolkit">Redux Toolkit</a></b></li>
 
 <li> <i>React-Forms:</i> <b><a target="_blank"href="https://www.npmjs.com/package/react-hook-form">React-hook-form</a></b></li>
+
+<p>
+        configure shadcn ui
+</p>
+
+<p>
+
+        bun x --bun shadcn@latest init
+
+</p>
+
+<p>Move utils.ts to libs/shadcn
+
+</p>
+
+<p>
+
+        bun x --bun shadcn@latest add
+
+</p>

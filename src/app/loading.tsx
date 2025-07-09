@@ -1,5 +1,5 @@
 "use client";
-import Loader from "@/components/Wrapper/Loader";
+import Loader from "@/components/wrappers/Loader";
 import React from "react";
 
 const loading = () => {

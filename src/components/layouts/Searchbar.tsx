@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import Searchbar_main from "../ui/tailwindcss/Searchbar/Searchbar_main";
+import Searchbar_main from "@/components/context/Searchbar/Searchbar_main";
 
 const Searchbar = () => {
   return (
