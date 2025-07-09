@@ -39,7 +39,6 @@ const Cart_itemListing = () => {
               {item.thumbImage ? (
                 <Images_thumbnail src={item.thumbImage} />
               ) : null}
-
               {/* Product Details */}
               <div className="flex-1 min-w-0">
                 <h5 className="font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -56,7 +55,6 @@ const Cart_itemListing = () => {
                   )}
                 </div>
               </div>
-
               {/* Quantity Controls */}
               <div className="flex items-center space-x-3">
                 <div className="flex items-center rounded-lg border border-gray-700">
