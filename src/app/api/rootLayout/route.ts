@@ -4,7 +4,7 @@
  */
 
 import rootLayout from "@/data/rootLayout.json";
-import { allowedOrigins } from "../../../libs/configs/config.serverlist";
+import { allowedOrigins } from "@/libs/configs/config.server";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
