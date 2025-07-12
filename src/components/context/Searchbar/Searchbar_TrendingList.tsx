@@ -34,7 +34,7 @@ const Searchbar_TrendingList = () => {
           </Command.Empty>
           <Command.Group
             heading="Recent Trends..."
-            className=" text-center  my-2 rounded-md "
+            className=" text-center text-foreground  my-2 rounded-md "
           >
             {searchFeature.trendingSearches.slice(0, 5).map((item, index) => (
               <Searchbar_Item key={index} item={item} />

@@ -25,10 +25,10 @@ const Product_addToCartDirectly = ({
   };
   const dispatch = useDispatch();
   return (
-    <div className="flex flex-col sm:flex-row gap-4">
+    <div className="w-full flex flex-col sm:flex-row gap-4">
       <Button
         size="sm"
-        className="cursor-pointer bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white border-0"
+        className="w-full cursor-pointer bg-gradient-to-r from-primary to-secondary hover:from-primary-foreground hover:to-secondary-foreground text-white border-0"
         onClick={() => {
           dispatch(addToLocalCartItem(currentItem));
         }}

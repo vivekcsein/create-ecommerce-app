@@ -1,4 +1,4 @@
-import { Input } from "@/components/ui/shadcn/input";
+import { Input } from "@/components/ui/custom/input";
 import { Button } from "@/components/ui/shadcn/button";
 
 const Newsletter = () => {

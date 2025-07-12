@@ -41,28 +41,32 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+
 :root {
-  --universal-background: #ccfbf1;
+  --universal-background: #99f6e4;
   --universal-foreground: #0400ff;
+  --universal-layout: #0f766e;
+  --universal-layout-background: #5eead4;
+
   --background: #f5f5f5f5;
-  --foreground: #000;
-  --muted: #887ef9;
-  --muted-foreground: #8d8aa3;
+  --foreground: #0f766e;
+  --muted: #134e4a;
+  --muted-foreground: #134e4a9e;
   --popover: #f6f3ff;
-  --popover-foreground: #1a0e2e;
+  --popover-foreground: #0d9488;
   --card: #f6f3ff;
   --card-foreground: #1a0e2e;
-  --border: #9487f1;
-  --input: #e0def0;
-  --primary: #7c3aed;
-  --primary-foreground: #6830ca;
-  --secondary: #3b82f6;
+  --border: #2dd4bf;
+  --input: #2dd4bf;
+  --primary: #14b8a6;
+  --primary-foreground: #5eead4;
+  --secondary: #0f766e;
   --secondary-foreground: #275aac;
-  --accent: #7c3aed;
+  --accent: #0f766e;
   --accent-foreground: #ffffff;
   --destructive: #d7263d;
   --destructive-foreground: #ffffff;
-  --ring: #7c3aed;
+  --ring: #2dd4bf;
   --chart-1: #7c3aed;
   --chart-2: #3b82f6;
   --chart-3: #ff3ad7;
@@ -74,10 +78,13 @@
 .dark {
   --universal-background: #0a0710;
   --universal-foreground: rgb(255, 255, 255);
+  --universal-layout: #e9d5ff;
+  --universal-layout-background: #3b0764;
+
   --background: #0a0710;
   --foreground: #f5f5f5f5;
-  --muted: #ada4e0;
-  --muted-foreground: #b3b0c9;
+  --muted: #faf5ff;
+  --muted-foreground: #d8b4fe;
   --popover: #0a0710;
   --popover-foreground: #ffffff;
   --card: #0a0710;
@@ -88,7 +95,7 @@
   --primary-foreground: #6830ca;
   --secondary: #3b82f6;
   --secondary-foreground: #275aac;
-  --accent: #ff3ad7;
+  --accent: #7e22ce;
   --accent-foreground: #ffffff;
   --destructive: #e13a4b;
   --destructive-foreground: #ffffff;
@@ -177,14 +184,11 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  @apply font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
-}
-
+h6,
 .heading,
 .heading>span,
 .heading>div {
-  background: -webkit-linear-gradient(var(--foreground), #651fc7);
+  background: -webkit-linear-gradient(var(--foreground), var(--primary));
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
@@ -253,6 +257,7 @@ input::placeholder {
   box-sizing: border-box;
   /* padding-left: 0.5rem; */
   text-decoration: none;
+  border-color: var(--color-border);
 }
 
 .center {

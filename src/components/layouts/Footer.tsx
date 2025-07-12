@@ -28,7 +28,7 @@ const Footer = ({ footerData }: FooterProps) => {
             ) : (
               <Link
                 href={footerlink.href || "#"}
-                className="hover:text-primary transition-colors text-muted-foreground text-sm"
+                className="hover:text-primary transition-colors text-sm"
               >
                 {footerlink.label}
               </Link>
@@ -44,13 +44,13 @@ const Footer = ({ footerData }: FooterProps) => {
       <div className="px-6 py-6 border-border flex flex-col md:flex-row justify-between items-center">
         <p className="text-muted-foreground text-sm">{copyright_message}</p>
         <div className="flex space-x-6 text-sm text-muted-foreground mt-4 md:mt-0">
-          <Link href="#" className="hover:text-primary transition-colors">
+          <Link href="#" className="hover:text-muted transition-colors">
             Privacy Policy
           </Link>
-          <Link href="#" className="hover:text-primary transition-colors">
+          <Link href="#" className="hover:text-muted transition-colors">
             Terms of Service
           </Link>
-          <Link href="#" className="hover:text-primary transition-colors">
+          <Link href="#" className="hover:text-muted transition-colors">
             Cookie Policy
           </Link>
         </div>
@@ -67,7 +67,7 @@ const FooterDesc = (link: extendedNavlink) => {
       <Link href="/" className="flex items-center mb-4">
         <h4>{link.label}</h4>
       </Link>
-      <p className="text-muted-foreground mb-6 max-w-md">{link.discription}</p>
+      <p className="text-foreground mb-6 max-w-md">{link.discription}</p>
     </>
   );
 };
@@ -76,9 +76,9 @@ const FooterContactInfo = () => {
   return (
     <div className="space-y-4">
       <h4>Contact</h4>
-      <ul className="space-y-3 text-muted-foreground">
+      <ul className="space-y-3 text-muted-foreground hover:text-muted transition-colors cursor-pointer">
         <li className="flex items-center">
-          <Mail className="h-4 w-4 mr-2 text-primary" />
+          <Mail className="h-4 w-4 mr-2" />
           contact@sixteal.com
         </li>
       </ul>
@@ -100,7 +100,7 @@ const FooterLinkDisplay = ({
         <li key={link.id} className=" mb-2">
           <Link
             href={link.href || "#"}
-            className="text-muted-foreground transition-colors text-sm coolLink"
+            className="text-muted-foreground hover:text-muted transition-colors text-sm coolLink"
           >
             {link.label}
           </Link>

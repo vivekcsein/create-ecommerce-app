@@ -15,7 +15,7 @@ const Product_starRating = ({ currentRating }: Product_starRatingProps) => {
         <span key={star}>
           <Helper_svg
             variant={"Rating"}
-            size={24}
+            size={16}
             color="gold"
             bgcolor="transparent"
             show={

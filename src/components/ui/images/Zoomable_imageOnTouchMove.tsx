@@ -8,6 +8,8 @@ interface ImageZoomProps {
   alt: string;
   width: number;
   height: number;
+  className?: string;
+  category?: "product" | "card";
 }
 
 const Zoomable_imageOnTouchMove = ({
@@ -15,6 +17,8 @@ const Zoomable_imageOnTouchMove = ({
   alt,
   width,
   height,
+  className,
+  category,
 }: ImageZoomProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -41,7 +45,7 @@ const Zoomable_imageOnTouchMove = ({
   return (
     <div
       ref={imageRef}
-      className="relative overflow-hidden rounded-lg cursor-crosshair group"
+      className={`relative overflow-hidden rounded-lg cursor-crosshair group ${category == "card" ? className : ""}`}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -51,13 +55,14 @@ const Zoomable_imageOnTouchMove = ({
         alt={alt}
         width={width}
         height={height}
-        className={`w-full h-auto object-cover rounded-lg shadow-md  aspect-square cursor-pointer transition-transform duration-300 ease-out ${
-          isHovered ? "scale-150" : "scale-100"
-        }`}
+        className={`w-full object-cover rounded-lg shadow-md  aspect-square cursor-pointer transition-transform duration-300 ease-out
+           ${category == "card" ? className : ""}
+           ${isHovered ? "scale-150" : "scale-100"}`}
         style={{
           transformOrigin: isHovered
             ? `${mousePosition.x}% ${mousePosition.y}%`
             : "center",
+          height: `${height ? height : width}px`,
         }}
       />
       <div

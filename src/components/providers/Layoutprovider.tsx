@@ -1,5 +1,5 @@
 "use client";
-
+import "@/styles/css/layout.css";
 import { useDispatch } from "react-redux";
 import React, { useEffect, useRef } from "react";
 import { useIsMobile } from "@/libs/hooks/use-mobile";

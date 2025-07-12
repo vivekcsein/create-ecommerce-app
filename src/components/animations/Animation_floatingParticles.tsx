@@ -8,7 +8,7 @@ const Animation_floatingParticles = () => {
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-purple-500 dark:bg-teal-500 rounded-full"
+          className="absolute w-1 h-1 bg-primary rounded-full"
           initial={{
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,

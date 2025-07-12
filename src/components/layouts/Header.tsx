@@ -1,5 +1,4 @@
 import React from "react";
-import "@/styles/css/Header.css";
 import Navbar_logo from "../context/navbar/Navbar_logo";
 import Navbar_desktop from "../context/navbar/desktop/Navbar_desktop";
 import Navbar_mobile from "../context/navbar/mobile/Navbar_mobile";

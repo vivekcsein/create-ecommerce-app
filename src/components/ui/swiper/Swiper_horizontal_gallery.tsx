@@ -6,10 +6,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lucid_svg from "@/components/ui/helper/Lucid_svg";
 import { Navigation, Pagination, Mousewheel } from "swiper/modules";
 import { productCategories, ProductDetails } from "@/types/products";
-import Product_card from "@/components/context/products/Product_card";
+// import Product_card from "@/components/context/products/Product_card";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Product_Card from "@/components/layouts/Product_Card";
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -169,7 +170,7 @@ export default function Swiper_horizontal_gallery({
             {categoryItems.map((item) => (
               <SwiperSlide key={item.uid}>
                 <div className="gallery-card">
-                  <Product_card Item={item} />
+                  <Product_Card product={item} />
                 </div>
               </SwiperSlide>
             ))}

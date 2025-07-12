@@ -3,9 +3,10 @@
     top: 0;
     z-index: 50;
     width: 100%;
-    background-color: var(--universal-background);
-    color: var(--foreground);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* background-color: var(--universal-background); */
+    background-color: var(--universal-layout-background);
+    color: var(--universal-layout);
+    box-shadow: 0 2px 4px rgba(100, 120, 120, 0.1);
     height: 70px;
     font-size: 14px;
 }
@@ -33,5 +34,6 @@
 }
 
 footer {
-    background-color: var(--universal-background);
+    background-color: var(--universal-layout-background);
+    color: var(--universal-layout);
 }

@@ -25,8 +25,8 @@ const Herov2 = () => {
       <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
         <div className="space-y-8 text-center lg:text-left">
           <div className="space-y-4" ref={targetRef}>
-            <div className="inline-flex items-center mt-5 lg:mt-1 gap-2 px-4 py-2 rounded-full bg-teal-100 text-teal-700 text-sm font-medium">
-              <span className="w-2 h-2 bg-teal-500 rounded-full"></span>
+            <div className="inline-flex items-center mt-5 lg:mt-1 gap-2 px-4 py-2 rounded-full text-primary bg-gradient-to-r from-bg-muted to-bg-muted-foreground text-sm font-medium">
+              <span className="w-2 h-2 bg-primary rounded-full"></span>
               Six Teal Collection
             </div>
             <h1 className="heading text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight">
@@ -39,7 +39,7 @@ const Herov2 = () => {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link href={"/trending"}>
+            <Link href={"/Trending"}>
               <Button
                 size="lg"
                 variant={"gradient"}

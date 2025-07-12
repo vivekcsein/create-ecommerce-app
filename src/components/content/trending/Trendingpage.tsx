@@ -1,11 +1,22 @@
 "use client";
-import { useState } from "react";
-import Trending_card from "./Trending_card";
-import { TrendingUp, Clock, Filter } from "lucide-react";
-import { Button } from "@/components/ui/shadcn/button";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/libs/redux/store";
+import { TrendingUp, Filter } from "lucide-react";
 import { FeaturedCategory } from "@/types/products";
+import { Button } from "@/components/ui/shadcn/button";
+import Product_Card from "@/components/layouts/Product_Card";
+import Animated_scatteredText from "@/components/animations/Animated_scatteredText";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/shadcn/select";
 
 type AllCategories = "All" | FeaturedCategory;
 const categories: Array<AllCategories> = [
@@ -33,6 +44,8 @@ export default function Trendingpage() {
     (state: RootState) => state.products.homepageProductsData
   );
 
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
   const filteredProducts =
     selectedCategory === "All"
       ? trendingProducts
@@ -40,18 +53,65 @@ export default function Trendingpage() {
           product.Category.includes(selectedCategory)
         );
 
+  const sortedProducts = filteredProducts?.slice().sort((a, b) => {
+    switch (sortBy) {
+      case "Price: Low to High":
+        return a.currentPrice - b.currentPrice;
+      case "Price: High to Low":
+        return b.currentPrice - a.currentPrice;
+      // case "Newest":
+      // return (
+      //   new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      // );
+      case "Rating":
+        return b.currentRating - a.currentRating;
+      case "Trending":
+      // fallback to trending
+      default:
+        return b.currentRating - a.currentRating;
+    }
+  });
+
+  useGSAP(() => {
+    const cards = containerRef.current?.querySelectorAll(".gallery-card");
+    console.log(cards);
+
+    if (cards) {
+      gsap.fromTo(
+        cards,
+        {
+          opacity: 0,
+          y: 60,
+          scale: 0.8,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+          stagger: 0.1,
+          // scrollTrigger: {
+          //   trigger: containerRef.current,
+          //   start: "top 80%",
+          //   end: "bottom 0%",
+          //   toggleActions: "play none none reverse",
+          // },
+        }
+      );
+    }
+  });
+
   return (
     <div className="min-h-screen">
       <div className="container relative mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-100 text-teal-700 text-sm font-medium mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-muted text-sm font-medium mb-4">
             <TrendingUp className="w-4 h-4" />
             Trending Now
           </div>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
-            Featured <span className="text-teal-600">Trending</span> Products
-          </h1>
+          <Animated_scatteredText text="Featured Trending Products" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Discover what&apos;s hot right now. Curated selections that are
             making waves across all six dimensions of style.
@@ -73,8 +133,8 @@ export default function Trendingpage() {
                   onClick={() => setSelectedCategory(category)}
                   className={`rounded-full cursor-pointer ${
                     selectedCategory === category
-                      ? "bg-teal-600 hover:bg-teal-700 text-white"
-                      : "border-teal-200 text-teal-700 hover:bg-teal-50"
+                      ? "border-primary text-white "
+                      : "border-secondary text-foreground hover:text-background hover:bg-foreground dark:hover:bg-white"
                   }`}
                 >
                   {category}
@@ -84,31 +144,39 @@ export default function Trendingpage() {
           </div>
 
           {/* Sort Options */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <Filter className="w-4 h-4 text-gray-500" />
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 border border-teal-200 rounded-full bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
-            >
-              {sortOptions.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
+            <Select onValueChange={(value) => setSortBy(value)}>
+              <SelectTrigger className="w-auto min-w-[180px] border-e-2 border-foreground">
+                <SelectValue placeholder="Sort By Trending" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {sortOptions.map((option) => (
+                    <SelectItem key={option} value={option}>
+                      {option}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {filteredProducts?.map((product) => (
-            <Trending_card product={product} key={product.uid} />
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+          ref={containerRef}
+        >
+          {sortedProducts?.map((product) => (
+            <div key={product.uid} className="gallery-card">
+              <Product_Card product={product} />
+            </div>
           ))}
         </div>
 
         {/* Load More */}
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <Button
             variant="outline"
             size="lg"
@@ -117,7 +185,7 @@ export default function Trendingpage() {
             <Clock className="w-4 h-4 mr-2" />
             Load More Products
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
