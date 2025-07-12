@@ -9,7 +9,7 @@ const _envAppConfig = {
 };
 
 const _envBackendConfig = {
-  APP_BACKEND: process.env.APP_BACKEND || "http://localhost:7164",
+  APP_BACKEND: process.env.APP_BACKEND || "localhost:7164",
   APP_BACKEND_API_URL:
     process.env.APP_BACKEND_API_URL || "http://localhost:7164/api",
 };
@@ -24,10 +24,6 @@ const _envRootLayoutConfig = {
   rootLayoutAPI:
     process.env.ROOT_LAYOUT_API ||
     ("http://localhost:3000/api/rootLayout" as string),
-
-  homepageProudctsAPI:
-    process.env.HOMEPAGE_PRODUCTS_API ||
-    ("http://localhost:3000/api/products/getallproducts" as string),
 };
 
 const _envGoogleConfig = {

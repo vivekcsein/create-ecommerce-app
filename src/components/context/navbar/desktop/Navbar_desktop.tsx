@@ -3,8 +3,6 @@ import Navbar_auth from "../Navbar_auth";
 import Navbar_link from "../Navbar_link";
 import Navbar_dropdown from "./Navbar_dropdown";
 import Themes from "@/components/layouts/Themes";
-import Cart_header from "../../cart/Cart_header";
-
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -21,7 +19,7 @@ const Navbar_desktop = ({
 }) => {
   return (
     <nav>
-      <NavigationMenu className="mr-5">
+      <NavigationMenu>
         <NavigationMenuList className="flex gap-5">
           {navbarlinks.map((links) => {
             return links.sublinks ? (
@@ -42,11 +40,8 @@ const Navbar_desktop = ({
           <NavigationMenuItem className="center">
             <Themes />
           </NavigationMenuItem>
-          <NavigationMenuItem className="center">
+          <NavigationMenuItem className="center mr-5">
             {isAuthenticated ? <Navbar_user /> : <Navbar_auth />}
-          </NavigationMenuItem>
-          <NavigationMenuItem className="center">
-            {isAuthenticated ? <Cart_header /> : null}
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>

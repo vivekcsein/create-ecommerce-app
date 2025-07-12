@@ -11,7 +11,7 @@ const Footer = ({ footerData }: FooterProps) => {
   const { footerlinks, copyright_message } = footerData;
 
   return (
-    <footer>
+    <footer className="bg-background">
       {/* Main Footer Content */}
       <div className="py-12 px-4 sm:px-8 md:px-12 lg:px-24 flex flex-col sm:flex-row justify-between items-start space-y-8 sm:space-y-0 gap-4">
         {footerlinks.map((footerlink, index) => (
@@ -79,7 +79,7 @@ const FooterContactInfo = () => {
       <ul className="space-y-3 text-muted-foreground">
         <li className="flex items-center">
           <Mail className="h-4 w-4 mr-2 text-primary" />
-          contact@sixteal.com
+          contact@sparkverse.com
         </li>
       </ul>
     </div>
@@ -100,7 +100,7 @@ const FooterLinkDisplay = ({
         <li key={link.id} className=" mb-2">
           <Link
             href={link.href || "#"}
-            className="text-muted-foreground transition-colors text-sm coolLink"
+            className="text-muted-foreground hover:text-primary transition-colors text-sm"
           >
             {link.label}
           </Link>
