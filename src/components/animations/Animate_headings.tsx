@@ -1,6 +1,6 @@
 "use client";
 import { useGSAP } from "@gsap/react";
-import { useAnimationContext } from "../providers/Animationprovider";
+import { useAnimationContext } from "../provider/Animationprovider";
 
 interface Animate_headingsProps {
   targetRef: React.RefObject<HTMLHeadingElement>;

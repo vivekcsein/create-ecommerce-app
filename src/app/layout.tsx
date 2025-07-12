@@ -4,10 +4,10 @@ import type { Metadata } from "next";
 import { poppins, roboto } from "@/libs/configs/config.styles";
 
 //import all providers to wrap the app
-import Fontsprovider from "@/components/providers/Fontsprovider";
-import Themesprovider from "@/components/providers/Themesprovider";
-import Layoutprovider from "@/components/providers/Layoutprovider";
-import Storeprovider from "@/components/providers/Storeprovider";
+import Fontsprovider from "@/components/provider/Fontsprovider";
+import Themesprovider from "@/components/provider/Themesprovider";
+import Layoutprovider from "@/components/provider/Layoutprovider";
+import Storeprovider from "@/components/provider/Storeprovider";
 
 // call rootlayout API
 import { getRootLayoutAPI } from "@/libs/api/api.fetch";
