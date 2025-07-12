@@ -7,13 +7,16 @@ import { poppins, roboto } from "@/libs/configs/config.styles";
 import Fontsprovider from "@/components/providers/Fontsprovider";
 import Themesprovider from "@/components/providers/Themesprovider";
 import Layoutprovider from "@/components/providers/Layoutprovider";
+import Storeprovider from "@/components/providers/Storeprovider";
 
 // call rootlayout API
 import { getRootLayoutAPI } from "@/libs/api/api.fetch";
+import { ProductDetails } from "@/types/products";
+import { getHomePageProducts } from "@/libs/api/api.products";
 
 export const metadata: Metadata = {
-  title: "Title",
-  description: "%{description} | Title",
+  title: "Six Teal",
+  description: "%{description} | Six Teal a fashion brand",
 };
 
 export default async function RootLayout({
@@ -21,24 +24,31 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const rootLayoutJson: Promise<rootLayoutData> = getRootLayoutAPI();
-  const rootLayoutData = await rootLayoutJson;
+  const [rootLayoutData, homepageProductsData]: [
+    rootLayoutData,
+    ProductDetails[],
+  ] = await Promise.all([getRootLayoutAPI(), getHomePageProducts()]);
 
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${poppins.variable} antialiased`}>
-        <Themesprovider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Fontsprovider>
-            <Layoutprovider rootLayoutData={rootLayoutData}>
-              {children}
-            </Layoutprovider>
-          </Fontsprovider>
-        </Themesprovider>
+        <Storeprovider>
+          <Themesprovider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Fontsprovider>
+              <Layoutprovider
+                rootLayoutData={rootLayoutData}
+                homepageProductsData={homepageProductsData}
+              >
+                {children}
+              </Layoutprovider>
+            </Fontsprovider>
+          </Themesprovider>
+        </Storeprovider>
       </body>
     </html>
   );

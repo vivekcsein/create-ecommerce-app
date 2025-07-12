@@ -20,7 +20,7 @@ import {
 const Navbar_user = () => {
   return (
     <div>
-      <NavigationMenu>
+      <NavigationMenu className="">
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger className="border-0" icon={false}>
@@ -29,7 +29,7 @@ const Navbar_user = () => {
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="transform -translate-x-2/5">
+            <NavigationMenuContent className="transform -translate-x-1/5">
               <Border_shadow variant="offset-bottom-right">
                 <ul className="flex gap-5 flex-col py-2 px-4 bg-background rounded-md">
                   <NavigationMenuItem>

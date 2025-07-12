@@ -29,7 +29,7 @@ const Navbar_dropdown = ({
           </NavigationMenuTrigger>
           <NavigationMenuContent className="transform -translate-x-1/5">
             <Border_shadow variant="offset-bottom-right">
-              <div className="flex gap-5 flex-col py-2 px-4  bg-background rounded-md">
+              <div className="flex gap-5 flex-col py-2 px-4 bg-background rounded-md">
                 {dropdownlinks.map((link) => {
                   return (
                     <NavigationMenuLink asChild key={link.href || link.label}>

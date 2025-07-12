@@ -1,7 +1,9 @@
 "use client";
+import Loader from "@/components/wrappers/Loader";
+import React from "react";
 
-const Loading = () => {
-  return <h3>Loading...</h3>;
+const loading = () => {
+  return <Loader />;
 };
 
-export default Loading;
+export default loading;

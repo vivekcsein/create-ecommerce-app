@@ -50,7 +50,7 @@ const Header = ({
         // Desktop version
         // Desktop version
         <div className="Header__desktop">
-          <Navbar_logo image={logo} label={"sparkverse"} />
+          <Navbar_logo image={logo} label={"Six Teal"} />
           <Navbar_desktop
             navbarlinks={headerData.navbarlinks}
             isAuthenticated={isAuthenticated || false}

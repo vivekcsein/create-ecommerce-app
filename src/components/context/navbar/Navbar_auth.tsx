@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Dialog, DialogTrigger } from "@/components/ui/shadcn/dialog";
 import { Button } from "@/components/ui/shadcn/button";
-import AuthPage from "@/components/layouts/Authpage";
+import AuthPage from "@/components/providers/Authpage";
 import { SheetTitle } from "@/components/ui/shadcn/sheet";
 import { DialogContentUserAuth } from "@/components/ui/custom/dialog";
 
